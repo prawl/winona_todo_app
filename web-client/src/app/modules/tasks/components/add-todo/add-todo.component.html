@@ -1,6 +1,10 @@
-<div class="flex flex-col w-[700px]  p-10">
+<div class="flex flex-col w-[700px] p-10">
   <div class="flex flex-row justify-between">
-    <h2 class="text-title text-emerald-800"> Add Task
+    <h2 class="text-title flex w-full justify-between">
+      Add Task
+      <button mat-icon-button [mat-dialog-close]="false" class="dark:text-dm-accent">
+        <mat-icon>close</mat-icon>
+      </button>
     </h2>
   </div>
   <div>
@@ -14,27 +18,34 @@
       <div class="flex flex-col mx-10">
         <mat-label>Deadline</mat-label>
         <mat-form-field appearance="outline">
-          <input matInput [matDatepicker]="picker" formControlName="deadline" placeholder="MM/DD/YYYY">
+          <input matInput [matDatepicker]="picker" formControlName="deadline" placeholder="MM/DD/YYYY" />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="flex flex-col mx-10">
-
         <mat-label>Details</mat-label>
         <mat-form-field appearance="outline">
-          <textarea matInput formControlName="details" class="min-h-24" placeholder="Please enter any details."></textarea>
+          <textarea
+            matInput
+            formControlName="details"
+            class="min-h-24"
+            placeholder="Please enter any details."
+          ></textarea>
         </mat-form-field>
       </div>
       <div class="flex flex-col mx-10">
-        <mat-checkbox class="mr-10" formControlName="isComplete">
-          Is Completed
-        </mat-checkbox>
+        <mat-checkbox class="mr-10" formControlName="isComplete"> Is Completed </mat-checkbox>
       </div>
       <div class="save_form_section w-full flex items-center justify-center">
-        <button mat-raised-button type="submit" (click)="save()"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">SAVE</button>
+        <button
+          mat-raised-button
+          (click)="save()"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          SAVE
+        </button>
       </div>
     </form>
   </div>

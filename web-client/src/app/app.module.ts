@@ -9,19 +9,9 @@ import { AppPreloadStrategy } from './appPreLoadStrategy';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule
-  ],
-  providers: [
-    provideAnimationsAsync(),
-    AppPreloadStrategy
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [HttpClientModule, BrowserModule, AppRoutingModule, SharedModule],
+  providers: [provideAnimationsAsync(), AppPreloadStrategy],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

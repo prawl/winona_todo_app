@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppPreloadStrategy } from './appPreLoadStrategy';
 
-
-
 const routes: Routes = [
   {
     path: '',
@@ -16,9 +14,9 @@ const routes: Routes = [
       {
         path: 'tasks',
         loadChildren: () => import('./modules/tasks/tasks.module').then((m) => m.TasksModule),
-      }
+      },
     ],
-  }
+  },
 ];
 
 @NgModule({

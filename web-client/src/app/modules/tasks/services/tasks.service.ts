@@ -38,11 +38,19 @@ export class TasksService {
       .pipe(finalize(() => this.isUpdatingTaskItems$.next(false)));
   }
 
-  public deleteToDo(guid: string): Observable<void> {
+  public deleteToDo(guid: string): Observable<TodoItem[]> {
     this.isDeletingTaskItems$.next(true);
 
     return this.http
-      .delete<void>(`http://localhost:5220/api/TodoItems/${guid}`, {})
+      .delete<TodoItem[]>(`http://localhost:5220/api/TodoItems/${guid}`, {})
       .pipe(finalize(() => this.isDeletingTaskItems$.next(false)));
+  }
+
+  public markComplete(id: string): Observable<TodoItem[]> {
+    this.isUpdatingTaskItems$.next(true);
+
+    return this.http
+      .put<TodoItem[]>(`http://localhost:5220/api/TodoItems/MarkComplete/${id}`, id)
+      .pipe(finalize(() => this.isUpdatingTaskItems$.next(false)));
   }
 }

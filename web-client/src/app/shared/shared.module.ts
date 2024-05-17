@@ -1,6 +1,6 @@
-import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -15,21 +15,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
-import {
-  MatSnackBarModule,
-  MAT_SNACK_BAR_DEFAULT_OPTIONS,
-} from '@angular/material/snack-bar';
-import { MatNativeDateModule } from "@angular/material/core";
-import { CommonModule, DatePipe } from "@angular/common";
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MessageComponent } from "./components/message/message.component";
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatMenuModule} from '@angular/material/menu';
-
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CommonModule, DatePipe } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MessageComponent } from './components/message/message.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { IsBeforeDatePipe } from './utilities/is-before-date.pipe';
 
 @NgModule({
-  declarations: [ MessageComponent],
+  declarations: [MessageComponent, IsBeforeDatePipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -57,9 +54,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDatepickerModule,
     MatProgressBarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   exports: [
+    CommonModule,
     FormsModule,
     MatCardModule,
     MatCheckboxModule,
@@ -86,13 +84,13 @@ import {MatMenuModule} from '@angular/material/menu';
     MatProgressBarModule,
     DatePipe,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    IsBeforeDatePipe,
   ],
   providers: [
     MatSnackBarModule,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
-    DatePipe
+    DatePipe,
   ],
 })
-export class SharedModule {
-}
+export class SharedModule {}

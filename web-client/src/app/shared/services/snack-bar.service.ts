@@ -13,12 +13,11 @@ export enum AlertType {
   Error = 'error',
 }
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class SnackBarService {
-  private readonly _DEFAULT_DURATION = 50000_000;
+  private readonly _DEFAULT_DURATION = 5_000;
 
   constructor(private snackBar: MatSnackBar) {}
 
@@ -27,7 +26,11 @@ export class SnackBarService {
    * @param message
    */
   public success(message: string): void {
-    this.showMessage(new MsgData(AlertType.Success, message), this._DEFAULT_DURATION, 'snackbar-green');
+    this.showMessage(
+      new MsgData(AlertType.Success, message),
+      this._DEFAULT_DURATION,
+      'snackbar-green'
+    );
   }
 
   /**
@@ -51,7 +54,11 @@ export class SnackBarService {
    * @param message
    */
   public warning(message: string): void {
-    this.showMessage(new MsgData(AlertType.Warning, message), this._DEFAULT_DURATION, 'snackbar-warning');
+    this.showMessage(
+      new MsgData(AlertType.Warning, message),
+      this._DEFAULT_DURATION,
+      'snackbar-warning'
+    );
   }
 
   /**
@@ -64,7 +71,7 @@ export class SnackBarService {
     this.snackBar.openFromComponent(MessageComponent, {
       data: messageData,
       duration: duration,
-      panelClass: [panelclass]
+      panelClass: [panelclass],
     });
   }
 }

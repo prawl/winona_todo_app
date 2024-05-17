@@ -2,8 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TaskListComponent } from './pages/task-list/task-list.component';
 
-
-
 const routes: Routes = [
   {
     path: '',
@@ -12,8 +10,8 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: TaskListComponent,
-      }
-    ]
+      },
+    ],
   },
 ];
 

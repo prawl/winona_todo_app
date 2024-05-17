@@ -3,6 +3,7 @@ import { take, finalize } from 'rxjs/operators';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TasksService } from '../../services/tasks.service';
 import { SnackBarService } from '../../../../shared/services/snack-bar.service';
+import { TodoItem } from '../../models/todoItem';
 
 @Component({
   selector: 'app-confirm-delete-todo',
@@ -28,14 +29,13 @@ export class ConfirmDeleteToDoComponent {
       .deleteToDo(this.guid)
       .pipe(take(1))
       .pipe(finalize(() => (this.submitting = false)))
-      .subscribe(
-        () => {
-          this.snackBarService.success('To Do successfully deleted.');
-          this.dialogRef.close(true);
+      .subscribe({
+        next: (resp: TodoItem[]) => {
+          this.dialogRef.close(resp);
         },
-        () => {
-          this.snackBarService.error('Error deleting to do.');
-        }
-      );
+        error: () => {
+          this.snackBarService.error('Error creating Task.');
+        },
+      });
   }
 }

@@ -1,8 +1,5 @@
 import { Component, Inject, Input } from '@angular/core';
-import {
-  MatSnackBarRef,
-  MAT_SNACK_BAR_DATA,
-} from '@angular/material/snack-bar';
+import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { AlertType } from '../../services/snack-bar.service';
 
 export class MsgData {
@@ -11,7 +8,7 @@ export class MsgData {
 
 @Component({
   selector: 'app-message',
-  templateUrl: './message.component.html'
+  templateUrl: './message.component.html',
 })
 export class MessageComponent {
   @Input() data: MsgData;
