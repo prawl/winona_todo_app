@@ -37,7 +37,6 @@ export class TaskListComponent implements OnInit {
 
   public saveTodoItem() {
     const item = {
-      id: 12345,
       task: 'Test test test',
       deadline: new Date(),
       details: 'new',

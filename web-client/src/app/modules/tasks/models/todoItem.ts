@@ -1,9 +1,9 @@
 export class TodoItem
 {
-    id: number;
+    id?: string;
     task: string;
     deadline: Date;
     details: string;
     isComplete: boolean;
-    subItem: TodoItem;
+    subItem?: TodoItem[];
 }
