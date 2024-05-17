@@ -58,8 +58,20 @@ public class TodoItemsController : ControllerBase
         todoItem.Deadline = item.Deadline;
         todoItem.Details = item.Details;
         todoItem.IsComplete = item.IsComplete;
+        todoItem.SubTasks.Clear();  // [Added line]
 
-        todoItem.SubTasks = item.SubTasks ?? new List<TodoItem>();
+        if (item.SubTasks != null)
+        {
+            foreach (var subTask in item.SubTasks)
+            {
+                if (subTask.Id == Guid.Empty)
+                {
+                    subTask.Id = Guid.NewGuid();  // [Added line]
+                }
+                todoItem.SubTasks.Add(subTask);  // [Added line]
+                _context.Entry(subTask).State = EntityState.Added;  // [Added line]
+            }
+        }
 
         try
         {
