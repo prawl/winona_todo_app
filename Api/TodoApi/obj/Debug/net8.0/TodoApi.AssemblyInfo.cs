@@ -18,6 +18,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3925d7676e7d03dcc50195a8567ed46482bec6b8")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae6d7551b88d7b8019e8e1b1c7e0b7e7c194caad")]
@@ -34,6 +35,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+001029c550cb8ac6334b9dba993d87e466a67710")]
 >>>>>>> 6314c53 (Add Tests)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6314c536c3225a1d1d87dcf476657d2b14482798")]
+>>>>>>> 1f52fd8 (Clean up tests)
 [assembly: System.Reflection.AssemblyProductAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

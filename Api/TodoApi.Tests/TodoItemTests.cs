@@ -27,26 +27,5 @@ namespace TodoApi.Tests
             Assert.False(todoItem.IsComplete);
             Assert.Equal("Sample secret", todoItem.Secret);
         }
-
-        // [Fact]
-        // public void CanCreateSubTask()
-        // {
-        //     var subTask = new SubTask
-        //     {
-        //         Id = Guid.NewGuid(),
-        //         Task = "Sub Task",
-        //         Deadline = "2024-05-18",
-        //         Details = "Details for sub task",
-        //         IsComplete = false,
-        //         Secret = "Sub task secret"
-        //     };
-
-        //     Assert.NotNull(subTask);
-        //     Assert.Equal("Sub Task", subTask.Task);
-        //     Assert.Equal("2024-05-18", subTask.Deadline);
-        //     Assert.Equal("Details for sub task", subTask.Details);
-        //     Assert.False(subTask.IsComplete);
-        //     Assert.Equal("Sub task secret", subTask.Secret);
-        // }
     }
 }

@@ -18,7 +18,7 @@ public class TodoItem
     public string? Details { get; set; }
     public bool? IsComplete { get; set; }
     public string? Secret { get; set; }
-    // public List<TodoApi.Models.TodoItem>? SubTasks { get; set; }
+    public List<TodoItem>? SubTasks { get; set; }
 
 
 >>>>>>> 6314c53 (Add Tests)
