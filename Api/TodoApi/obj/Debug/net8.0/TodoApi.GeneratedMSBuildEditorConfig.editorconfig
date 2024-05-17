@@ -1,5 +1,6 @@
 is_global = true
 build_property.TargetFramework = net8.0
+<<<<<<< HEAD
 build_property.TargetFramework = net8.0
 build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
@@ -34,11 +35,24 @@ build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
 =======
 build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
 >>>>>>> 9542e40 (Added additional tests)
+=======
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TodoApi
+build_property.RootNamespace = TodoApi
+build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
+>>>>>>> 6e5592e (Remove obj & bin dirs)
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -56,4 +70,7 @@ build_property.MSBuildProjectDirectory = C:\Users\ptyRa\Dev\winona_todo_app\Api\
 =======
 build_property.MSBuildProjectDirectory = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi
 >>>>>>> 9542e40 (Added additional tests)
+=======
+build_property.MSBuildProjectDirectory = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi
+>>>>>>> 6e5592e (Remove obj & bin dirs)
 build_property._RazorSourceGeneratorDebug = 

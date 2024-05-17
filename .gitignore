@@ -19,6 +19,8 @@ x86/
 *.sln.docstates
 
 # Auto-generated files
+obj/
+bin/
 TestResults/
 [Dd]ebugPublic/
 [Rr]eleasePublic/
