@@ -41,49 +41,6 @@ public class TodoItemsController : ControllerBase
     }
     // </snippet_GetByID>
 
-    // PUT: api/TodoItems
-    [HttpPut]
-    public async Task<IActionResult> PutTodoItem([FromBody] TodoItem item)
-    {
-        var todoItem = await _context.TodoItems
-            .Include(t => t.SubTasks)
-            .FirstOrDefaultAsync(t => t.Id == item.Id);
-
-        if (todoItem == null)
-        {
-            return NotFound();
-        }
-
-        todoItem.Task = item.Task;
-        todoItem.Deadline = item.Deadline;
-        todoItem.Details = item.Details;
-        todoItem.IsComplete = item.IsComplete;
-        todoItem.SubTasks.Clear();  // [Added line]
-
-        if (item.SubTasks != null)
-        {
-            foreach (var subTask in item.SubTasks)
-            {
-                if (subTask.Id == Guid.Empty)
-                {
-                    subTask.Id = Guid.NewGuid();  // [Added line]
-                }
-                todoItem.SubTasks.Add(subTask);  // [Added line]
-                _context.Entry(subTask).State = EntityState.Added;  // [Added line]
-            }
-        }
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException) when (!TodoItemExists(item.Id))
-        {
-            return NotFound();
-        }
-
-        return Ok(todoItem);
-    }
 
     // </snippet_Update>
 
@@ -112,6 +69,47 @@ public class TodoItemsController : ControllerBase
     }
     // </snippet_Create>
 
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutTodoItem(Guid id, TodoItem item)
+    {
+        if (id != item.Id)
+        {
+            return BadRequest();
+        }
+
+        // Retrieve the existing entity from the database
+        var existingItem = await _context.TodoItems.FindAsync(id);
+        if (existingItem == null)
+        {
+            return NotFound();
+        }
+
+        // Update the existing entity with the new values
+        existingItem.Task = item.Task;
+        existingItem.Deadline = item.Deadline;
+        existingItem.Details = item.Details;
+        existingItem.IsComplete = item.IsComplete;
+        existingItem.SubTasks = item.SubTasks; // Assuming this handles the sub-tasks correctly
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!TodoItemExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return Ok(existingItem);
+    }
+
     // DELETE: api/TodoItems/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTodoItem(Guid id)
@@ -130,7 +128,7 @@ public class TodoItemsController : ControllerBase
 
     private bool TodoItemExists(Guid id)
     {
-        return _context.TodoItems.Any(e => e.Id.ToString().ToLower() == id.ToString().ToLower());
+        return _context.TodoItems.Any(e => e.Id == id);
     }
 
     private static TodoItem ToTodoItem(CandidateTodoItem todoItem)
