@@ -8602,15 +8602,20 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/Users/prawl/.nuget/packages/": {}
 >>>>>>> 7907710 (docker now building)
 =======
     "/Users/BRawli2/.nuget/packages/": {}
 >>>>>>> 001029c (Added client)
+=======
+    "C:\\Users\\ptyRa\\.nuget\\packages\\": {}
+>>>>>>> 6314c53 (Add Tests)
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
@@ -8627,27 +8632,39 @@
 =======
       "projectUniqueName": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/TodoApi.csproj",
 >>>>>>> 001029c (Added client)
+=======
+      "projectUniqueName": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
+>>>>>>> 6314c53 (Add Tests)
       "projectName": "TodoApi",
-      "projectPath": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/TodoApi.csproj",
-      "packagesPath": "/Users/BRawli2/.nuget/packages/",
-      "outputPath": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/obj/",
+      "projectPath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
+      "packagesPath": "C:\\Users\\ptyRa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
 <<<<<<< HEAD
         "/Users/prawl/.nuget/NuGet/NuGet.Config"
 >>>>>>> 7907710 (docker now building)
 =======
         "/Users/BRawli2/.nuget/NuGet/NuGet.Config"
 >>>>>>> 001029c (Added client)
+=======
+        "C:\\Users\\ptyRa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 6314c53 (Add Tests)
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+>>>>>>> 6314c53 (Add Tests)
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8661,13 +8678,19 @@
           "NU1605"
         ]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6314c53 (Add Tests)
       },
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 6314c53 (Add Tests)
       }
     },
     "frameworks": {
@@ -8738,6 +8761,7 @@
         },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
 =======
         "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
@@ -8745,6 +8769,9 @@
 =======
         "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
 >>>>>>> 001029c (Added client)
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 6314c53 (Add Tests)
       }
     }
   }
