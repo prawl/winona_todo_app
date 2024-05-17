@@ -15,7 +15,9 @@
       </div>
     </div>
   </div>
-  <div *ngIf="submitting" class="loading__container absolute inset-0 flex justify-center items-center z-[4] bg-white bg-opacity-60 dark:bg-opacity-100 dark:bg-dm-bg">
-    <mat-progress-bar mode="indeterminate" color="accent" class="mt-1" [class.invisible]="!submitting"></mat-progress-bar>
-  </div>
+  @if (submitting) {
+    <div class="loading__container absolute inset-0 flex justify-center items-center z-[4] bg-white bg-opacity-60 dark:bg-opacity-100 dark:bg-dm-bg">
+      <mat-progress-bar mode="indeterminate" color="accent" class="mt-1" [class.invisible]="!submitting"></mat-progress-bar>
+    </div>
+  }
 </div>

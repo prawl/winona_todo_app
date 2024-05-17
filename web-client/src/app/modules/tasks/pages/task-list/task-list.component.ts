@@ -36,14 +36,6 @@ export class TaskListComponent implements OnInit {
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement: TodoItem | null;
 
-  exampleSubTask: TodoItem = {
-    id: 'iuyiuyiuyiuyiuyiuy',
-    task: 'New Subtask',
-    deadline: new Date(),
-    details: 'jhgjhgjhg',
-    isComplete: false
-  }
-
   constructor(
     protected tasksService: TasksService,
     private dialog: MatDialog,
@@ -62,10 +54,27 @@ export class TaskListComponent implements OnInit {
       this.tasksService.saveTodoItem(item).subscribe({
         next: (resp) => {
           const items = this.dataSource.getData();
-          resp.subItem = [];
-          resp.subItem.push(this.exampleSubTask);
           items.push(resp);
           this.dataSource.setData(items);
+        },
+        error: (err: HttpErrorResponse) => {
+          this.snackBarService.error('Error deleting to do.');
+        },
+      });
+    });
+  }
+
+  addSubTask(task: TodoItem) {
+    const ref = this.dialog.open(AddTodoComponent);
+
+    ref.afterClosed().subscribe((item: TodoItem) => {
+      task.subTasks.push(item)
+      this.tasksService.saveTodoItem(task).subscribe({
+        next: (resp) => {
+          const items = this.dataSource.getData();
+          const filteredTasks = items.filter(x => x.id !== task.id);
+          filteredTasks.push(resp);
+          this.dataSource.setData(filteredTasks);
         },
         error: (err: HttpErrorResponse) => {
           this.snackBarService.error('Error deleting to do.');

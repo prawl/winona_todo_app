@@ -5,5 +5,5 @@ export class TodoItem
     deadline: Date;
     details: string;
     isComplete: boolean;
-    subItem?: TodoItem[];
+    subTasks?: TodoItem[];
 }
