@@ -1,146 +1,121 @@
-using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
-using System.Diagnostics;
 
-namespace TodoApi.Controllers;
-
-[Route("api/[controller]")]
-[ApiController]
-public class TodoItemsController : ControllerBase
+namespace TodoApi.Controllers
 {
-    private readonly TodoContext _context;
-
-    public TodoItemsController(TodoContext context)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TodoItemsController : ControllerBase
     {
-        _context = context;
-    }
+        private readonly TodoContext _context;
 
-    // GET: api/TodoItems
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
-    {
-        return await _context.TodoItems
-            .ToListAsync();
-    }
-
-    // GET: api/TodoItems/5
-    // <snippet_GetByID>
-    [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItem>> GetTodoItem(Guid id)
-    {
-        var todoItem = await _context.TodoItems.FindAsync(id);
-
-        if (todoItem == null)
+        public TodoItemsController(TodoContext context)
         {
-            return NotFound();
+            _context = context;
         }
 
-        return todoItem;
-    }
-    // </snippet_GetByID>
-
-
-    // </snippet_Update>
-
-    // POST: api/TodoItems
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    // <snippet_Create>
-    [HttpPost]
-    public async Task<ActionResult<TodoItem>> PostTodoItem([FromBody] CandidateTodoItem candidate)
-    {
-        var todoItem = new TodoItem
+        // GET: api/TodoItems
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
-            Id = Guid.NewGuid(),
-            IsComplete = candidate.IsComplete,
-            Task = candidate.Task,
-            Deadline = candidate.Deadline,
-            Details = candidate.Details
-        };
-
-        _context.TodoItems.Add(todoItem);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(
-            nameof(GetTodoItem),
-            new { id = todoItem.Id },
-            todoItem);
-    }
-    // </snippet_Create>
-
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutTodoItem(Guid id, TodoItem item)
-    {
-        if (id != item.Id)
-        {
-            return BadRequest();
+            return await _context.TodoItems.ToListAsync();
         }
 
-        // Retrieve the existing entity from the database
-        var existingItem = await _context.TodoItems.FindAsync(id);
-        if (existingItem == null)
+        // GET: api/TodoItems/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<TodoItem>> GetTodoItem(Guid id)
         {
-            return NotFound();
-        }
+            var todoItem = await _context.TodoItems.FindAsync(id);
 
-        // Update the existing entity with the new values
-        existingItem.Task = item.Task;
-        existingItem.Deadline = item.Deadline;
-        existingItem.Details = item.Details;
-        existingItem.IsComplete = item.IsComplete;
-        existingItem.SubTasks = item.SubTasks; // Assuming this handles the sub-tasks correctly
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!TodoItemExists(id))
+            if (todoItem == null)
             {
                 return NotFound();
             }
-            else
+
+            return todoItem;
+        }
+
+        // POST: api/TodoItems
+        [HttpPost]
+        public async Task<ActionResult<TodoItem>> PostTodoItem(CandidateTodoItem item)
+        {
+            var todoItem = new TodoItem
             {
-                throw;
+                Id = Guid.NewGuid(),
+                Task = item.Task,
+                Deadline = item.Deadline,
+                Details = item.Details,
+                IsComplete = item.IsComplete
+            };
+
+            _context.TodoItems.Add(todoItem);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+        }
+
+        // PUT: api/TodoItems/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoItem(Guid id, TodoItem item)
+        {
+            if (id != item.Id)
+            {
+                return BadRequest();
             }
+
+            var existingItem = await _context.TodoItems
+                .Include(t => t.SubTasks)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
+
+            // Update existing item's properties
+            existingItem.Task = item.Task;
+            existingItem.Deadline = item.Deadline;
+            existingItem.Details = item.Details;
+            existingItem.IsComplete = item.IsComplete;
+
+            // Assign new GUIDs to new subtasks
+            foreach (var subTask in item.SubTasks)
+            {
+                if (subTask.Id == Guid.Empty || subTask.Id == default)
+                {
+                    subTask.Id = Guid.NewGuid();
+                }
+            }
+
+            // Detach any existing tracked entities
+            _context.Entry(existingItem).State = EntityState.Detached;
+
+            // Attach the updated item to the context and update
+            _context.Entry(item).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return Ok(item);
         }
 
-        return Ok(existingItem);
-    }
-
-    // DELETE: api/TodoItems/5
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteTodoItem(Guid id)
-    {
-        var todoItem = await _context.TodoItems.FindAsync(id);
-        if (todoItem == null)
+        // DELETE: api/TodoItems/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTodoItem(Guid id)
         {
-            return NotFound();
+            var todoItem = await _context.TodoItems.FindAsync(id);
+            if (todoItem == null)
+            {
+                return NotFound();
+            }
+
+            _context.TodoItems.Remove(todoItem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
-
-        _context.TodoItems.Remove(todoItem);
-        await _context.SaveChangesAsync();
-
-        return NoContent();
-    }
-
-    private bool TodoItemExists(Guid id)
-    {
-        return _context.TodoItems.Any(e => e.Id == id);
-    }
-
-    private static TodoItem ToTodoItem(CandidateTodoItem todoItem)
-    {
-        return new TodoItem
-        {
-            Id = Guid.NewGuid(),
-            Task = todoItem.Task,
-            Deadline = todoItem.Deadline,
-            Details = todoItem.Details,
-            IsComplete = todoItem.IsComplete,
-
-        };
     }
 }

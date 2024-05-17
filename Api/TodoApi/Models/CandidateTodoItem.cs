@@ -15,5 +15,7 @@ namespace TodoApi.Models
         [MaxLength(500)]
         public required string Details { get; set; }
         public bool IsComplete { get; set; }
+        public List<TodoItem> SubTasks { get; set; } = new List<TodoItem>(); // Add this line
+
     }
 }
