@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import {
   MatSnackBarRef,
   MAT_SNACK_BAR_DATA,
@@ -11,13 +11,11 @@ export class MsgData {
 
 @Component({
   selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
+  templateUrl: './message.component.html'
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent {
   @Input() data: MsgData;
-  public snackBarClass: string;
-  public iconUrl: string;
+  alert = AlertType;
 
   constructor(
     @Inject(MAT_SNACK_BAR_DATA) response: MsgData,
@@ -25,27 +23,6 @@ export class MessageComponent implements OnInit {
   ) {
     if (response) {
       this.data = response;
-    }
-  }
-
-  ngOnInit() {
-    switch (this.data.type) {
-      case AlertType.Error:
-        this.snackBarClass = 'bg-red-600';
-        this.iconUrl = `app/shared/assets/icons/alert-solid.svg`;
-        break;
-      case AlertType.Success:
-        this.snackBarClass = 'bg-green-600';
-        this.iconUrl = `app/shared/assets/icons/check-solid.svg`;
-        break;
-      case AlertType.Warning:
-        this.snackBarClass = 'bg-yellow-600';
-        this.iconUrl = `app/shared/assets/icons/warning-solid.svg`;
-        break;
-      default:
-        this.snackBarClass = 'bg-slate-500';
-        this.iconUrl = `app/shared/assets/icons/information-solid.svg`;
-        break;
     }
   }
 

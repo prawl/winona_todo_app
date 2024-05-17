@@ -3,10 +3,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "nqANOXbO5tkYx/jANTdntWPLixEKe6zPaifvjev8FOJCjm+WIZYhbNjbLTMqX0Qsp4KFqTiM55D0RW2JwTqTHg==",
+=======
+  "dgSpecHash": "hgXFLoCiO9LuepB97tpBPqtxWoEdsx+syB7AQNA5wsjMn6f/auc6ttit9MgtDeXPoXnvA/8SJmspHjFodwb8Ng==",
+>>>>>>> 9ecbb9c (Updates)
   "success": true,
-  "projectFilePath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
+  "projectFilePath": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/TodoApi.csproj",
   "expectedPackageFiles": [
+<<<<<<< HEAD
     "C:\\Users\\ptyRa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -363,6 +368,8 @@
     "/Users/prawl/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512"
 >>>>>>> 7907710 (docker now building)
 =======
+=======
+>>>>>>> 9ecbb9c (Updates)
     "/Users/BRawli2/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/BRawli2/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
     "/Users/BRawli2/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
@@ -529,6 +536,7 @@
     "/Users/BRawli2/.nuget/packages/system.threading.tasks.dataflow/7.0.0/system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "/Users/BRawli2/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "/Users/BRawli2/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512"
+<<<<<<< HEAD
 >>>>>>> 001029c (Added client)
 =======
     "C:\\Users\\ptyRa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
@@ -698,6 +706,8 @@
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
 >>>>>>> 6314c53 (Add Tests)
+=======
+>>>>>>> 9ecbb9c (Updates)
   ],
   "logs": []
 }

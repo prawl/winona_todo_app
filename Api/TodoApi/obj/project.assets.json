@@ -8595,6 +8595,7 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\ptyRa\\.nuget\\packages\\": {}
 =======
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -8611,6 +8612,9 @@
 =======
     "C:\\Users\\ptyRa\\.nuget\\packages\\": {}
 >>>>>>> 6314c53 (Add Tests)
+=======
+    "/Users/BRawli2/.nuget/packages/": {}
+>>>>>>> 9ecbb9c (Updates)
   },
   "project": {
     "version": "1.0.0",
@@ -8618,13 +8622,18 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
+=======
+      "projectUniqueName": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/TodoApi.csproj",
+>>>>>>> 9ecbb9c (Updates)
       "projectName": "TodoApi",
-      "projectPath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
-      "packagesPath": "C:\\Users\\ptyRa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\obj\\",
+      "projectPath": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/TodoApi.csproj",
+      "packagesPath": "/Users/BRawli2/.nuget/packages/",
+      "outputPath": "/Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\ptyRa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
 =======
@@ -8652,11 +8661,15 @@
         "C:\\Users\\ptyRa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
 >>>>>>> 6314c53 (Add Tests)
+=======
+        "/Users/BRawli2/.nuget/NuGet/NuGet.Config"
+>>>>>>> 9ecbb9c (Updates)
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -8665,6 +8678,8 @@
 =======
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
 >>>>>>> 6314c53 (Add Tests)
+=======
+>>>>>>> 9ecbb9c (Updates)
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8679,6 +8694,7 @@
         ]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 6314c53 (Add Tests)
       },
@@ -8691,6 +8707,8 @@
 >>>>>>> 7907710 (docker now building)
 =======
 >>>>>>> 6314c53 (Add Tests)
+=======
+>>>>>>> 9ecbb9c (Updates)
       }
     },
     "frameworks": {
@@ -8762,6 +8780,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
 =======
         "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
@@ -8772,6 +8791,9 @@
 =======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
 >>>>>>> 6314c53 (Add Tests)
+=======
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 9ecbb9c (Updates)
       }
     }
   }

@@ -96,7 +96,7 @@ public class TodoItemsController : ControllerBase
 
     // DELETE: api/TodoItems/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteTodoItem(int id)
+    public async Task<IActionResult> DeleteTodoItem(Guid id)
     {
         var todoItem = await _context.TodoItems.FindAsync(id);
         if (todoItem == null)

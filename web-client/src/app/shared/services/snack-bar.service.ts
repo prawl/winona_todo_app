@@ -18,7 +18,7 @@ export enum AlertType {
   providedIn: 'root',
 })
 export class SnackBarService {
-  private readonly _DEFAULT_DURATION = 5_000;
+  private readonly _DEFAULT_DURATION = 50000_000;
 
   constructor(private snackBar: MatSnackBar) {}
 
@@ -27,7 +27,7 @@ export class SnackBarService {
    * @param message
    */
   public success(message: string): void {
-    this.showMessage(new MsgData(AlertType.Success, message));
+    this.showMessage(new MsgData(AlertType.Success, message), this._DEFAULT_DURATION, 'snackbar-green');
   }
 
   /**
@@ -35,7 +35,7 @@ export class SnackBarService {
    * @param message
    */
   public error(message: string): void {
-    this.showMessage(new MsgData(AlertType.Error, message), 0);
+    this.showMessage(new MsgData(AlertType.Error, message), 0, 'snackbar-red');
   }
 
   /**
@@ -43,7 +43,7 @@ export class SnackBarService {
    * @param message
    */
   public info(message: string): void {
-    this.showMessage(new MsgData(AlertType.Info, message));
+    this.showMessage(new MsgData(AlertType.Info, message), this._DEFAULT_DURATION, 'snackbar-info');
   }
 
   /**
@@ -51,7 +51,7 @@ export class SnackBarService {
    * @param message
    */
   public warning(message: string): void {
-    this.showMessage(new MsgData(AlertType.Warning, message));
+    this.showMessage(new MsgData(AlertType.Warning, message), this._DEFAULT_DURATION, 'snackbar-warning');
   }
 
   /**
@@ -60,12 +60,11 @@ export class SnackBarService {
    * @param duration
    * @private
    */
-  private showMessage(messageData: MsgData, duration = this._DEFAULT_DURATION) {
+  private showMessage(messageData: MsgData, duration = this._DEFAULT_DURATION, panelclass: string) {
     this.snackBar.openFromComponent(MessageComponent, {
       data: messageData,
       duration: duration,
-      verticalPosition: 'top',
-      panelClass: `snack-bar--${messageData.type}`
+      panelClass: [panelclass]
     });
   }
 }

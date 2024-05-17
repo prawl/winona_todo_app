@@ -1,4 +1,4 @@
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { TodoItem } from "../../models/todoItem";
 import { Component, OnInit } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
@@ -12,7 +12,6 @@ import { TasksService } from "../../services/tasks.service";
 export class AddTodoComponent implements OnInit {
 
   public todoForm: FormGroup;
-  protected item: TodoItem;
 
   get task() {
     return this.todoForm.get("task");
@@ -44,25 +43,16 @@ export class AddTodoComponent implements OnInit {
 
   public save() {
     const item = this.todoForm.value as TodoItem;
-    this.tasksService.saveTodoItem(item)
-      .subscribe(
-        () => {
-          this.dialogRef.close(true);
-        },
-        () => {
-
-        }
-      );
+    this.dialogRef.close(item);
   }
 
   private buildForm() {
     this.todoForm = this.formBuilder.group(
       {
-        id: [null],
-        task: [null],
-        deadline: [null],
+        task: [null, Validators.required],
+        deadline: [null, Validators.required],
         details: [null],
-        isComplete: [null]
+        isComplete: [false]
       }
     );
   }

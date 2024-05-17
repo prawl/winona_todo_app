@@ -54,7 +54,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDialogModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatIconModule
   ],
   exports: [
     FormsModule,
@@ -81,7 +82,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDatepickerModule,
     MessageComponent,
     MatProgressBarModule,
-    DatePipe
+    DatePipe,
+    MatIconModule
   ],
   providers: [
     MatSnackBarModule,

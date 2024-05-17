@@ -9,3 +9,30 @@
 @include mat.all-component-typographies();
 
 @include mat.core();
+
+
+.mat-mdc-snack-bar-container {
+    &.snackbar-red {
+      --mdc-snackbar-container-color: rgb(190 18 60) !important;
+      --mat-mdc-snack-bar-button-color: white;
+      --mdc-snackbar-supporting-text-color: white
+    }
+  
+    &.snackbar-green {
+      --mdc-snackbar-container-color: rgb(20 184 166) !important;
+      --mat-mdc-snack-bar-button-color: white;
+      --mdc-snackbar-supporting-text-color: white
+    }
+  
+    &.snackbar-info {
+      --mdc-snackbar-container-color: rgb(100 116 139) !important;
+      --mat-mdc-snack-bar-button-color: white;
+      --mdc-snackbar-supporting-text-color: white
+    }
+  
+    &.snackbar-warning {
+      --mdc-snackbar-container-color: rgb(245 158 11) !important;
+      --mat-mdc-snack-bar-button-color: white;
+      --mdc-snackbar-supporting-text-color: white
+    }
+  }

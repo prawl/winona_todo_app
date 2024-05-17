@@ -1,26 +1,19 @@
-<div class="snackbar-msg__container flex items-center justify-between text-white rounded-md min-h-full w-full"
-     [ngClass]="snackBarClass">
+<div *ngIf="data.type === alert.Error" class="flex items-center text-white">
+  <mat-icon class="mr-2">report</mat-icon>
+  <span>{{data.message}}</span>
+</div>
 
-  <div class="flex items-center">
-    <img class="mr-16 w-20 h-20"
-         src="{{ iconUrl }}"
-         alt="Icon"
-         width="20px"
-         height="20px"/>
+<div *ngIf="data.type === alert.Warning" class="flex items-center text-white">
+  <mat-icon class="mr-2">warning</mat-icon>
+  <span>{{data.message}}</span>
+</div>
 
-    <span *ngIf="data.message"
-          class="mr-20">
-        {{data.message}}
-    </span>
-  </div>
+<div *ngIf="data.type === alert.Success " class="flex items-center text-white">
+  <mat-icon class="mr-2">check_circle</mat-icon>
+  <span>{{data.message}}</span>
+</div>
 
-  <button class="btn btn-2xs btn-tertiary-reversed btn-icon-only"
-          type="button"
-          (click)="close()">
-    <img class="close-icon min-w-[16px]"
-         src="app/shared/assets/icons/no-base.svg"
-         alt="Close"
-         width="16px"
-         height="16px"/>
-  </button>
+<div *ngIf="data.type === alert.Info" class="flex items-center text-white">
+  <mat-icon class="mr-2">info</mat-icon>
+  <span>{{data.message}}</span>
 </div>
