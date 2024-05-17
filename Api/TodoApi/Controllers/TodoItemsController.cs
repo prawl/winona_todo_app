@@ -77,26 +77,36 @@ namespace TodoApi.Controllers
                 return NotFound();
             }
 
+            // Detach existing item
+            _context.Entry(existingItem).State = EntityState.Detached;
+
             // Update existing item's properties
             existingItem.Task = item.Task;
             existingItem.Deadline = item.Deadline;
             existingItem.Details = item.Details;
             existingItem.IsComplete = item.IsComplete;
 
-            // Assign new GUIDs to new subtasks
+            // Handle subtasks
             foreach (var subTask in item.SubTasks)
             {
                 if (subTask.Id == Guid.Empty || subTask.Id == default)
                 {
                     subTask.Id = Guid.NewGuid();
                 }
+                else
+                {
+                    var existingSubTask = await _context.TodoItems.FindAsync(subTask.Id);
+                    if (existingSubTask != null)
+                    {
+                        _context.Entry(existingSubTask).State = EntityState.Detached;
+                    }
+                }
             }
 
-            // Detach any existing tracked entities
-            _context.Entry(existingItem).State = EntityState.Detached;
+            existingItem.SubTasks = item.SubTasks;
 
             // Attach the updated item to the context and update
-            _context.Entry(item).State = EntityState.Modified;
+            _context.Entry(existingItem).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return Ok(item);
