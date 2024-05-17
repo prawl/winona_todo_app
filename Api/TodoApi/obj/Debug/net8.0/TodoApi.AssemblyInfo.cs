@@ -22,6 +22,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3925d7676e7d03dcc50195a8567ed46482bec6b8")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae6d7551b88d7b8019e8e1b1c7e0b7e7c194caad")]
@@ -50,6 +51,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9542e404c0e475fe1865886bf3b07e6da9810002")]
 >>>>>>> 81ba9e4 (Added min/max validation)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d156697a069fc7bd339784b336982b53afc526d")]
+>>>>>>> 09d2788 (PUT accounts for subtasks)
 [assembly: System.Reflection.AssemblyProductAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

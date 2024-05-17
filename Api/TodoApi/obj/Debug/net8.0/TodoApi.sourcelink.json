@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"documents":{"/Users/BRawli2/DEV/winona_todo_app/*":"https://raw.githubusercontent.com/prawl/winona_todo_app/001029c550cb8ac6334b9dba993d87e466a67710/*"}}
 =======
 {"documents":{"C:\\Users\\ptyRa\\Dev\\winona_todo_app\\*":"https://raw.githubusercontent.com/prawl/winona_todo_app/001029c550cb8ac6334b9dba993d87e466a67710/*"}}
@@ -19,3 +20,6 @@
 =======
 {"documents":{"C:\\Users\\ptyRa\\Dev\\winona_todo_app\\*":"https://raw.githubusercontent.com/prawl/winona_todo_app/9542e404c0e475fe1865886bf3b07e6da9810002/*"}}
 >>>>>>> 81ba9e4 (Added min/max validation)
+=======
+{"documents":{"C:\\Users\\ptyRa\\Dev\\winona_todo_app\\*":"https://raw.githubusercontent.com/prawl/winona_todo_app/7d156697a069fc7bd339784b336982b53afc526d/*"}}
+>>>>>>> 09d2788 (PUT accounts for subtasks)

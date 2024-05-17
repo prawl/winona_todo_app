@@ -40,13 +40,14 @@ public class TodoItemsController : ControllerBase
     }
     // </snippet_GetByID>
 
-    // PUT: api/TodoItems/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    // <snippet_Update>
+    // PUT: api/TodoItems
     [HttpPut]
     public async Task<IActionResult> PutTodoItem([FromBody] TodoItem item)
     {
-        var todoItem = await _context.TodoItems.FindAsync(item.Id);
+        var todoItem = await _context.TodoItems
+            .Include(t => t.SubTasks)
+            .FirstOrDefaultAsync(t => t.Id == item.Id);
+
         if (todoItem == null)
         {
             return NotFound();
@@ -56,6 +57,29 @@ public class TodoItemsController : ControllerBase
         todoItem.Deadline = item.Deadline;
         todoItem.Details = item.Details;
         todoItem.IsComplete = item.IsComplete;
+
+        // Clear existing subtasks and add the new ones
+        todoItem.SubTasks.Clear();
+
+        if (item.SubTasks != null)
+        {
+            foreach (var subTask in item.SubTasks)
+            {
+                if (subTask.SubTasks != null && subTask.SubTasks.Any())
+                {
+                    return BadRequest("Subtasks cannot have their own subtasks.");
+                }
+
+                if (subTask.Id == Guid.Empty)
+                {
+                    subTask.Id = Guid.NewGuid();
+                }
+
+                // Ensure the new subtask is tracked by EF
+                _context.Entry(subTask).State = EntityState.Added;
+                todoItem.SubTasks.Add(subTask);
+            }
+        }
 
         try
         {
@@ -68,6 +92,8 @@ public class TodoItemsController : ControllerBase
 
         return NoContent();
     }
+
+
     // </snippet_Update>
 
     // POST: api/TodoItems
