@@ -1,6 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace TodoApi.Models
 {
@@ -28,8 +26,17 @@ namespace TodoApi.Models
     public class TodoItem
     {
         public Guid Id { get; set; }
+
+        [Required]
+        [MinLength(5)]
+        [MaxLength(100)]
         public required string Task { get; set; }
+
         public required string Deadline { get; set; }
+
+        [Required]
+        [MinLength(10)]
+        [MaxLength(500)]
         public required string Details { get; set; }
         public bool IsComplete { get; set; }
         private List<TodoItem>? subTasks;

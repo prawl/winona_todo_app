@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using TodoApi.Models;
 using Xunit;
 
@@ -96,6 +98,128 @@ namespace TodoApi.Tests
             };
 
             Assert.Throws<InvalidOperationException>(() => todoItem.SubTasks = new List<TodoItem> { subTask });
+        }
+
+        [Fact]
+        public void TodoItem_ValidModel_ShouldPassValidation()
+        {
+            // Arrange
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Valid Task",
+                Details = "Valid details with sufficient length",
+                Deadline = "2024-08-01",
+                IsComplete = false
+            };
+
+            // Act
+            var validationResults = ValidationHelper.ValidateModel(todoItem);
+
+            // Assert
+            Assert.Empty(validationResults);
+        }
+
+        [Fact]
+        public void TodoItem_InvalidTaskLength_ShouldFailValidation()
+        {
+            // Arrange
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Shor", // Invalid length
+                Details = "Valid details with sufficient length",
+                Deadline = "2024-08-01",
+                IsComplete = false
+            };
+
+            // Act
+            var validationResults = ValidationHelper.ValidateModel(todoItem);
+
+            // Assert
+            Assert.Single(validationResults);
+            Assert.Contains(validationResults, v => v.MemberNames.Contains("Task") && v.ErrorMessage.Contains("minimum length"));
+        }
+
+        [Fact]
+        public void TodoItem_InvalidDetailsLength_ShouldFailValidation()
+        {
+            // Arrange
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Valid Task",
+                Details = "Short", // Invalid length
+                Deadline = "2024-08-01",
+                IsComplete = false
+            };
+
+            // Act
+            var validationResults = ValidationHelper.ValidateModel(todoItem);
+
+            // Debug output
+            foreach (var validationResult in validationResults)
+            {
+                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
+            }
+
+            // Assert
+            Assert.Single(validationResults);
+            Assert.Contains(validationResults, v => v.MemberNames.Contains("Details") && v.ErrorMessage.Contains("minimum length"));
+        }
+
+        [Fact]
+        public void TodoItem_TaskTooLong_ShouldFailValidation()
+        {
+            // Arrange
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = new string('A', 101), // Too long
+                Details = "Valid details with sufficient length",
+                Deadline = "2024-08-01",
+                IsComplete = false
+            };
+
+            // Act
+            var validationResults = ValidationHelper.ValidateModel(todoItem);
+
+            // Debug output
+            foreach (var validationResult in validationResults)
+            {
+                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
+            }
+
+            // Assert
+            Assert.Single(validationResults);
+            Assert.Contains(validationResults, v => v.MemberNames.Contains("Task") && v.ErrorMessage.Contains("maximum length"));
+        }
+
+        [Fact]
+        public void TodoItem_DetailsTooLong_ShouldFailValidation()
+        {
+            // Arrange
+            var todoItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Valid Task",
+                Details = new string('A', 501), // Too long
+                Deadline = "2024-08-01",
+                IsComplete = false
+            };
+
+            // Act
+            var validationResults = ValidationHelper.ValidateModel(todoItem);
+
+            // Debug output
+            foreach (var validationResult in validationResults)
+            {
+                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
+            }
+
+            // Assert
+            Assert.Single(validationResults);
+            Assert.Contains(validationResults, v => v.MemberNames.Contains("Details") && v.ErrorMessage.Contains("maximum length"));
         }
     }
 }
