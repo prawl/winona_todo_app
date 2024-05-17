@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj": {}
   },
   "projects": {
@@ -16,12 +17,31 @@
         "configFilePaths": [
           "C:\\Users\\ptyRa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "/Users/prawl/Developer/TodoApi/TodoApi.csproj": {}
+  },
+  "projects": {
+    "/Users/prawl/Developer/TodoApi/TodoApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/prawl/Developer/TodoApi/TodoApi.csproj",
+        "projectName": "TodoApi",
+        "projectPath": "/Users/prawl/Developer/TodoApi/TodoApi.csproj",
+        "packagesPath": "/Users/prawl/.nuget/packages/",
+        "outputPath": "/Users/prawl/Developer/TodoApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/prawl/.nuget/NuGet/NuGet.Config"
+>>>>>>> 7907710 (docker now building)
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+<<<<<<< HEAD
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+=======
+>>>>>>> 7907710 (docker now building)
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +54,14 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
+=======
+>>>>>>> 7907710 (docker now building)
         }
       },
       "frameworks": {
@@ -69,6 +92,7 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
+<<<<<<< HEAD
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
@@ -80,6 +104,11 @@
             "xunit": {
               "target": "Package",
               "version": "[2.8.0, )"
+=======
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+>>>>>>> 7907710 (docker now building)
             }
           },
           "imports": [
@@ -101,7 +130,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 7907710 (docker now building)
         }
       }
     }

@@ -46,6 +46,7 @@
           }
         }
       },
+<<<<<<< HEAD
       "Castle.Core/5.1.1": {
         "type": "package",
         "dependencies": {
@@ -62,6 +63,8 @@
           }
         }
       },
+=======
+>>>>>>> 7907710 (docker now building)
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -1965,6 +1968,7 @@
           "lib/netcoreapp3.1/Mono.TextTemplating.dll": {}
         }
       },
+<<<<<<< HEAD
       "Moq/4.20.70": {
         "type": "package",
         "dependencies": {
@@ -1981,6 +1985,8 @@
           }
         }
       },
+=======
+>>>>>>> 7907710 (docker now building)
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -2879,6 +2885,7 @@
             "rid": "win"
           }
         }
+<<<<<<< HEAD
       },
       "xunit/2.8.0": {
         "type": "package",
@@ -2963,6 +2970,8 @@
             "related": ".xml"
           }
         }
+=======
+>>>>>>> 7907710 (docker now building)
       }
     }
   },
@@ -3009,6 +3018,7 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
+<<<<<<< HEAD
     "Castle.Core/5.1.1": {
       "sha512": "rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
       "type": "package",
@@ -3033,6 +3043,8 @@
         "readme.txt"
       ]
     },
+=======
+>>>>>>> 7907710 (docker now building)
     "Humanizer/2.14.1": {
       "sha512": "/FUTD3cEceAAmJSCPN9+J+VhGwmL/C12jvwlyM1DFXShEMsBzvLzLqSrJ2rb+k/W2znKw7JyflZgZpyE+tI7lA==",
       "type": "package",
@@ -6784,6 +6796,7 @@
         "readme.md"
       ]
     },
+<<<<<<< HEAD
     "Moq/4.20.70": {
       "sha512": "4rNnAwdpXJBuxqrOCzCyICXHSImOTRktCgCWXWykuF1qwoIsVvEnR7PjbMk/eLOxWvhmj5Kwt+kDV3RGUYcNwg==",
       "type": "package",
@@ -6805,6 +6818,8 @@
         "readme.md"
       ]
     },
+=======
+>>>>>>> 7907710 (docker now building)
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -8436,6 +8451,7 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+<<<<<<< HEAD
     },
     "xunit/2.8.0": {
       "sha512": "US3a3twJziAif1kFPGdk9fALwILHxV0n1roX5j67bN/d3o4DGNLHnV3tr5ZX+uinVrzfkf0avH3zGX8JPBC0qA==",
@@ -8561,6 +8577,8 @@
         "xunit.extensibility.execution.2.8.0.nupkg.sha512",
         "xunit.extensibility.execution.nuspec"
       ]
+=======
+>>>>>>> 7907710 (docker now building)
     }
   },
   "projectFileDependencyGroups": {
@@ -8570,6 +8588,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
+<<<<<<< HEAD
       "Moq >= 4.20.70",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "xunit >= 2.8.0"
@@ -8577,10 +8596,18 @@
   },
   "packageFolders": {
     "C:\\Users\\ptyRa\\.nuget\\packages\\": {}
+=======
+      "Swashbuckle.AspNetCore >= 6.4.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/prawl/.nuget/packages/": {}
+>>>>>>> 7907710 (docker now building)
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
       "projectName": "TodoApi",
       "projectPath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
@@ -8590,12 +8617,25 @@
       "configFilePaths": [
         "C:\\Users\\ptyRa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "/Users/prawl/Developer/TodoApi/TodoApi.csproj",
+      "projectName": "TodoApi",
+      "projectPath": "/Users/prawl/Developer/TodoApi/TodoApi.csproj",
+      "packagesPath": "/Users/prawl/.nuget/packages/",
+      "outputPath": "/Users/prawl/Developer/TodoApi/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/prawl/.nuget/NuGet/NuGet.Config"
+>>>>>>> 7907710 (docker now building)
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+<<<<<<< HEAD
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+=======
+>>>>>>> 7907710 (docker now building)
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8608,11 +8648,14 @@
         "warnAsError": [
           "NU1605"
         ]
+<<<<<<< HEAD
       },
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
+=======
+>>>>>>> 7907710 (docker now building)
       }
     },
     "frameworks": {
@@ -8643,6 +8686,7 @@
             "target": "Package",
             "version": "[8.0.2, )"
           },
+<<<<<<< HEAD
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
@@ -8654,6 +8698,11 @@
           "xunit": {
             "target": "Package",
             "version": "[2.8.0, )"
+=======
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[6.4.0, )"
+>>>>>>> 7907710 (docker now building)
           }
         },
         "imports": [
@@ -8675,7 +8724,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/8.0.4/libexec/sdk/8.0.104/PortableRuntimeIdentifierGraph.json"
+>>>>>>> 7907710 (docker now building)
       }
     }
   }
