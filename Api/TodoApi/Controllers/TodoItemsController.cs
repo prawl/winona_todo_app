@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
 
@@ -124,7 +125,7 @@ public class TodoItemsController : ControllerBase
             Deadline = todoItem.Deadline,
             Details = todoItem.Details,
             IsComplete = todoItem.IsComplete,
-            SubTasks = todoItem.SubTasks as IEnumerable<TodoItem>
+
         };
     }
 }

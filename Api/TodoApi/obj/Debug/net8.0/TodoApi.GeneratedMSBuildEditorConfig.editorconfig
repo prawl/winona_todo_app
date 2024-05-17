@@ -20,6 +20,7 @@ build_property.RootNamespace = TodoApi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
 =======
 build_property.ProjectDir = /Users/prawl/Developer/TodoApi/
@@ -30,11 +31,15 @@ build_property.ProjectDir = /Users/BRawli2/DEV/winona_todo_app/Api/TodoApi/
 =======
 build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
 >>>>>>> 6314c53 (Add Tests)
+=======
+build_property.ProjectDir = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi\
+>>>>>>> 9542e40 (Added additional tests)
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -48,4 +53,7 @@ build_property.MSBuildProjectDirectory = /Users/BRawli2/DEV/winona_todo_app/Api/
 =======
 build_property.MSBuildProjectDirectory = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi
 >>>>>>> 6314c53 (Add Tests)
+=======
+build_property.MSBuildProjectDirectory = C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi
+>>>>>>> 9542e40 (Added additional tests)
 build_property._RazorSourceGeneratorDebug = 

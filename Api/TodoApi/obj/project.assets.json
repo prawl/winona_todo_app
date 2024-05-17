@@ -47,6 +47,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
       "Castle.Core/5.1.1": {
         "type": "package",
         "dependencies": {
@@ -63,8 +66,11 @@
           }
         }
       },
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -1969,6 +1975,9 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
       "Moq/4.20.70": {
         "type": "package",
         "dependencies": {
@@ -1985,8 +1994,11 @@
           }
         }
       },
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
@@ -2886,6 +2898,9 @@
           }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
       },
       "xunit/2.8.0": {
         "type": "package",
@@ -2970,8 +2985,11 @@
             "related": ".xml"
           }
         }
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
       }
     }
   },
@@ -3019,6 +3037,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
     "Castle.Core/5.1.1": {
       "sha512": "rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
       "type": "package",
@@ -3043,8 +3064,11 @@
         "readme.txt"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
     "Humanizer/2.14.1": {
       "sha512": "/FUTD3cEceAAmJSCPN9+J+VhGwmL/C12jvwlyM1DFXShEMsBzvLzLqSrJ2rb+k/W2znKw7JyflZgZpyE+tI7lA==",
       "type": "package",
@@ -6797,6 +6821,9 @@
       ]
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
     "Moq/4.20.70": {
       "sha512": "4rNnAwdpXJBuxqrOCzCyICXHSImOTRktCgCWXWykuF1qwoIsVvEnR7PjbMk/eLOxWvhmj5Kwt+kDV3RGUYcNwg==",
       "type": "package",
@@ -6818,8 +6845,11 @@
         "readme.md"
       ]
     },
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
     "Newtonsoft.Json/13.0.3": {
       "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
@@ -8452,6 +8482,9 @@
         "useSharedDesignerContext.txt"
       ]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
     },
     "xunit/2.8.0": {
       "sha512": "US3a3twJziAif1kFPGdk9fALwILHxV0n1roX5j67bN/d3o4DGNLHnV3tr5ZX+uinVrzfkf0avH3zGX8JPBC0qA==",
@@ -8577,8 +8610,11 @@
         "xunit.extensibility.execution.2.8.0.nupkg.sha512",
         "xunit.extensibility.execution.nuspec"
       ]
+<<<<<<< HEAD
 =======
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
     }
   },
   "projectFileDependencyGroups": {
@@ -8588,6 +8624,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.2",
+<<<<<<< HEAD
 <<<<<<< HEAD
       "Moq >= 4.20.70",
       "Swashbuckle.AspNetCore >= 6.4.0",
@@ -8599,6 +8636,11 @@
     "C:\\Users\\ptyRa\\.nuget\\packages\\": {}
 =======
       "Swashbuckle.AspNetCore >= 6.4.0"
+=======
+      "Moq >= 4.20.70",
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "xunit >= 2.8.0"
+>>>>>>> 9542e40 (Added additional tests)
     ]
   },
   "packageFolders": {
@@ -8740,6 +8782,9 @@
             "version": "[8.0.2, )"
           },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
           "Moq": {
             "target": "Package",
             "version": "[4.20.70, )"
@@ -8751,11 +8796,14 @@
           "xunit": {
             "target": "Package",
             "version": "[2.8.0, )"
+<<<<<<< HEAD
 =======
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
           }
         },
         "imports": [

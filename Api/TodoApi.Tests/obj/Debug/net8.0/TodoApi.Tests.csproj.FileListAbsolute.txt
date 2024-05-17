@@ -327,3 +327,5 @@ C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\obj\Debug\net8.0\refint\Tod
 C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\obj\Debug\net8.0\TodoApi.Tests.pdb
 C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\obj\Debug\net8.0\TodoApi.Tests.genruntimeconfig.cache
 C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\obj\Debug\net8.0\ref\TodoApi.Tests.dll
+C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\ptyRa\Dev\winona_todo_app\Api\TodoApi.Tests\bin\Debug\net8.0\Moq.dll

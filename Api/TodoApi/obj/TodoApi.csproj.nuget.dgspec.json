@@ -134,6 +134,9 @@
               "version": "[8.0.2, )"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9542e40 (Added additional tests)
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
@@ -145,11 +148,14 @@
             "xunit": {
               "target": "Package",
               "version": "[2.8.0, )"
+<<<<<<< HEAD
 =======
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
 >>>>>>> 7907710 (docker now building)
+=======
+>>>>>>> 9542e40 (Added additional tests)
             }
           },
           "imports": [

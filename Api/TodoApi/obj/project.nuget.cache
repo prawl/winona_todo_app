@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "nqANOXbO5tkYx/jANTdntWPLixEKe6zPaifvjev8FOJCjm+WIZYhbNjbLTMqX0Qsp4KFqTiM55D0RW2JwTqTHg==",
 =======
   "dgSpecHash": "hgXFLoCiO9LuepB97tpBPqtxWoEdsx+syB7AQNA5wsjMn6f/auc6ttit9MgtDeXPoXnvA/8SJmspHjFodwb8Ng==",
@@ -195,6 +196,9 @@
 =======
   "dgSpecHash": "Bwawea3TxohyI9oUC1IQ27Fb0PnDH2noJiuNXEKVTCywWXw8EwwqTI25bRN2SscZ11N1nSjgSpQ7dJhL4hQaAA==",
 >>>>>>> 6314c53 (Add Tests)
+=======
+  "dgSpecHash": "nqANOXbO5tkYx/jANTdntWPLixEKe6zPaifvjev8FOJCjm+WIZYhbNjbLTMqX0Qsp4KFqTiM55D0RW2JwTqTHg==",
+>>>>>>> 9542e40 (Added additional tests)
   "success": true,
   "projectFilePath": "C:\\Users\\ptyRa\\Dev\\winona_todo_app\\Api\\TodoApi\\TodoApi.csproj",
   "expectedPackageFiles": [
@@ -541,6 +545,7 @@
 =======
     "C:\\Users\\ptyRa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -652,6 +657,7 @@
     "C:\\Users\\ptyRa\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\8.0.2\\microsoft.visualstudio.web.codegenerators.mvc.8.0.2.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\mono.texttemplating\\2.3.1\\mono.texttemplating.2.3.1.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\nuget.common\\6.9.1\\nuget.common.6.9.1.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\nuget.configuration\\6.9.1\\nuget.configuration.6.9.1.nupkg.sha512",
@@ -704,10 +710,21 @@
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\ptyRa\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
 >>>>>>> 6314c53 (Add Tests)
 =======
 >>>>>>> 9ecbb9c (Updates)
+=======
+    "C:\\Users\\ptyRa\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit\\2.8.0\\xunit.2.8.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.analyzers\\1.13.0\\xunit.analyzers.1.13.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.assert\\2.8.0\\xunit.assert.2.8.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.core\\2.8.0\\xunit.core.2.8.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.extensibility.core\\2.8.0\\xunit.extensibility.core.2.8.0.nupkg.sha512",
+    "C:\\Users\\ptyRa\\.nuget\\packages\\xunit.extensibility.execution\\2.8.0\\xunit.extensibility.execution.2.8.0.nupkg.sha512"
+>>>>>>> 9542e40 (Added additional tests)
   ],
   "logs": []
 }

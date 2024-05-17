@@ -8,6 +8,5 @@ namespace TodoApi.Models
         public required string Deadline { get; set; }
         public required string Details { get; set; }
         public bool IsComplete { get; set; }
-        public IEnumerable<CandidateTodoItem>? SubTasks { get; set; }
     }
 }

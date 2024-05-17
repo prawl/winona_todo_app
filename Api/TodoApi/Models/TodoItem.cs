@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace TodoApi.Models;
-
-public class TodoItem
+namespace TodoApi.Models
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     public Guid Id { get; set; }
     public required string Task { get; set; }
@@ -23,3 +24,33 @@ public class TodoItem
 
 >>>>>>> 6314c53 (Add Tests)
 }
+=======
+    public class TodoItem
+    {
+        public Guid Id { get; set; }
+        public required string Task { get; set; }
+        public required string Deadline { get; set; }
+        public required string Details { get; set; }
+        public bool IsComplete { get; set; }
+        private List<TodoItem>? subTasks;
+        public List<TodoItem>? SubTasks
+        {
+            get => subTasks;
+            set
+            {
+                if (value != null)
+                {
+                    foreach (var subTask in value)
+                    {
+                        if (subTask.SubTasks != null && subTask.SubTasks.Any())
+                        {
+                            throw new InvalidOperationException("Subtasks cannot have their own subtasks.");
+                        }
+                    }
+                }
+                subTasks = value;
+            }
+        }
+    }
+}
+>>>>>>> 9542e40 (Added additional tests)
