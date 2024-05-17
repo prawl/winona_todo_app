@@ -27,13 +27,17 @@
         <ng-container matColumnDef="deadline">
           <th mat-header-cell *matHeaderCellDef>Deadline</th>
           <td mat-cell *matCellDef="let element">
-            <div [ngClass]="
-                (element.deadline | isBeforeDate : today)
-                  ? 'deadline-past text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
-                  : ''
-              ">
-              {{ element.deadline | date : "short" }}
-            </div>
+            <div [matTooltip]="(element.deadline | isBeforeDate : today) ? 'Deadline has passed.' : ''" [ngClass]="
+            (element.deadline | isBeforeDate : today)
+              ? 'deadline-past text-white bg-gradient-to-r
+              from-amber-300 via-amber-400 to-amber-500 
+              hover:bg-gradient-to-br 
+              focus:ring-4 focus:outline-none focus:ring-amber-300 
+              dark:focus:ring-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
+              : ''
+          ">
+          {{ element.deadline | date : "short" }}
+        </div>
           </td>
         </ng-container>
         <ng-container matColumnDef="details">
@@ -98,9 +102,13 @@
                 <ng-container matColumnDef="deadline">
                   <th mat-header-cell *matHeaderCellDef>Deadline</th>
                   <td mat-cell *matCellDef="let element">
-                    <div [ngClass]="
+                    <div [matTooltip]="(element.deadline | isBeforeDate : today) ? 'Deadline has passed.' : ''" [ngClass]="
                         (element.deadline | isBeforeDate : today)
-                          ? 'deadline-past text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
+                          ? 'deadline-past text-white bg-gradient-to-r
+                          from-amber-300 via-amber-400 to-amber-500 
+                          hover:bg-gradient-to-br 
+                          focus:ring-4 focus:outline-none focus:ring-amber-300 
+                          dark:focus:ring-amber-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
                           : ''
                       ">
                       {{ element.deadline | date : "short" }}

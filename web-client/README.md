@@ -1,4 +1,11 @@
-# WebClient
+# TaskTamer
+
+Install [Node.js](https://nodejs.org/en) which includes Node Package Manager
+
+Install the CLI using the npm package manager:
+
+`npm install -g @angular/cli`
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
