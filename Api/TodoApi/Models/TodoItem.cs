@@ -52,13 +52,6 @@ namespace TodoApi.Models
             {
                 if (value != null)
                 {
-
-
-
-
-
-
-
                     subTasks = value;
                 }
                 else
