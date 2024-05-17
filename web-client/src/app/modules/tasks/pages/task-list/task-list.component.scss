@@ -2,46 +2,39 @@ table {
   width: 100%;
 }
 
-tr.example-detail-row {
+tr.detail-expanded-row {
   height: 0;
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
+tr.task-row:not(.subtask-expanded):hover {
   background: whitesmoke;
 }
 
-tr.example-element-row:not(.example-expanded-row):active {
+tr.task-row:not(.subtask-expanded):active {
   background: #efefef;
 }
 
-.example-element-row td {
+.task-row td {
   border-bottom-width: 0;
 }
 
-.example-element-detail {
+.subtask-container {
   overflow: hidden;
   display: flex;
 }
 
-.example-element-diagram {
-  min-width: 80px;
-  border: 2px solid black;
-  padding: 8px;
-  font-weight: lighter;
-  margin: 8px 0;
-  height: 104px;
+.chip-amber {
+  @apply bg-amber-100 text-amber-700;
 }
 
-.example-element-symbol {
-  font-weight: bold;
-  font-size: 40px;
-  line-height: normal;
+.chip-green {
+  @apply bg-green-100 text-green-700;
 }
 
-.example-element-description {
-  padding: 16px;
+.chip-slate {
+  @apply bg-slate-100 text-slate-700;
 }
 
-.example-element-description-attribution {
-  opacity: 0.5;
+.task-status {
+  @apply text-center px-3 py-1 uppercase font-bold text-xs rounded-full shadow-sm;
 }
