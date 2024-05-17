@@ -4,9 +4,7 @@
 [Rr]elease/
 x64/
 x86/
-.vscode/
 .vs/
-.vscode/settings.json
 .vscode/launch.json
 .vscode/tasks.json
 .vscode/*.code-workspace
@@ -81,5 +79,4 @@ coverage/
 
 # Ignore Firebase files
 .firebase/
-.vscode/
 Api/TodoApi/obj

@@ -1,0 +1,23 @@
+{
+    "eslint.workingDirectories": [
+      "src"
+    ],
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "totalTypeScript.hideAllTips": false,
+    "totalTypeScript.hideBasicTips": true,
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    }
+  }

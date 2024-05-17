@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'web-client';
+  title = 'TaskTamer';
 
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.matIconRegistry.addSvgIcon(
