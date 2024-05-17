@@ -2,6 +2,8 @@
 
 # TaskTamer: Because Life Needs a List
 
+![IMG_9506](https://github.com/prawl/winona_todo_app/assets/3402498/73e4c8e2-6f89-49b7-8c61-eec068c34822)
+
 Ever missed an anniversary because you forgot to buy flowers? Yeah, us too. Welcome to TaskTamer, where you can finally keep track of all the important (and not-so-important) things in life. Add tasks, create subtasks, and clean up your list with ruthless efficiency. Mark them complete and feel that sweet, sweet relief. Tame your to-dos and never miss a beat again.
 
 # Getting Started Web API
