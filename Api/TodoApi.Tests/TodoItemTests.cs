@@ -26,6 +26,56 @@ namespace TodoApi.Tests
         }
 
         [Fact]
+        public async Task GetTodoItem_ShouldReturnTodoItemWithSubTasks()
+        {
+            // Arrange
+            var mainTask = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Main Task",
+                Deadline = "2024-05-20",
+                Details = "Main task details",
+                IsComplete = false,
+                SubTasks = new List<TodoItem>
+                {
+                    new TodoItem
+                    {
+                        Id = Guid.NewGuid(),
+                        Task = "Subtask 1",
+                        Deadline = "2024-05-21",
+                        Details = "Subtask details 1",
+                        IsComplete = false,
+                    },
+                    new TodoItem
+                    {
+                        Id = Guid.NewGuid(),
+                        Task = "Subtask 2",
+                        Deadline = "2024-05-22",
+                        Details = "Subtask details 2",
+                        IsComplete = false,
+                    }
+                }
+            };
+
+            _context.TodoItems.Add(mainTask);
+            await _context.SaveChangesAsync();
+
+            // Act
+            var result = await _controller.GetTodoItem(mainTask.Id);
+            var okResult = result.Result as OkObjectResult;
+            var retrievedTodoItem = okResult?.Value as TodoItem;
+
+            // Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(200, okResult.StatusCode);
+            Assert.NotNull(retrievedTodoItem);
+            Assert.Equal("Main Task", retrievedTodoItem.Task);
+            Assert.Equal(2, retrievedTodoItem.SubTasks.Count);
+            Assert.Contains(retrievedTodoItem.SubTasks, subTask => subTask.Task == "Subtask 1");
+            Assert.Contains(retrievedTodoItem.SubTasks, subTask => subTask.Task == "Subtask 2");
+        }
+
+        [Fact]
         public void CanCreateTodoItem()
         {
             var todoItem = new TodoItem

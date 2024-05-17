@@ -59,18 +59,81 @@ namespace TodoApi.Tests
         }
 
         [Fact]
+        public async Task GetTodoItemWithSubTasks_ShouldReturnTodoItemWithSubTasks()
+        {
+            // Arrange
+            var mainTask = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Main Task",
+                Deadline = "2024-05-20",
+                Details = "Main task details",
+                IsComplete = false,
+                SubTasks = new List<TodoItem>
+        {
+            new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Subtask 1",
+                Deadline = "2024-05-21",
+                Details = "Subtask details 1",
+                IsComplete = false,
+            },
+            new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Subtask 2",
+                Deadline = "2024-05-22",
+                Details = "Subtask details 2",
+                IsComplete = false,
+            }
+        }
+            };
+
+            _context.TodoItems.Add(mainTask);
+            await _context.SaveChangesAsync();
+
+            // Act
+            var result = await _controller.GetTodoItem(mainTask.Id);
+            var okResult = result.Result as OkObjectResult;
+            var retrievedTodoItem = okResult.Value as TodoItem;
+
+            // Assert
+            Assert.NotNull(okResult);
+            Assert.Equal(200, okResult.StatusCode);
+            Assert.NotNull(retrievedTodoItem);
+            Assert.Equal("Main Task", retrievedTodoItem.Task);
+            Assert.Equal(2, retrievedTodoItem.SubTasks.Count);
+            Assert.Contains(retrievedTodoItem.SubTasks, subTask => subTask.Task == "Subtask 1");
+            Assert.Contains(retrievedTodoItem.SubTasks, subTask => subTask.Task == "Subtask 2");
+        }
+
+        [Fact]
         public async Task GetTodoItem_ReturnsItemById()
         {
             // Arrange
-            var existingItem = await _context.TodoItems.FirstAsync();
+            var newItem = new TodoItem
+            {
+                Id = Guid.NewGuid(),
+                Task = "Test Task",
+                Deadline = DateTime.Now.AddDays(1).ToString(),
+                Details = "Test Details",
+                IsComplete = false
+            };
+            _context.TodoItems.Add(newItem);
+            await _context.SaveChangesAsync();
 
             // Act
-            var result = await _controller.GetTodoItem(existingItem.Id);
+            var result = await _controller.GetTodoItem(newItem.Id);
+            var okResult = result.Result as OkObjectResult;
+            var item = okResult?.Value as TodoItem;
 
             // Assert
-            var item = Assert.IsType<TodoItem>(result.Value);
-            Assert.Equal(existingItem.Id, item.Id);
-            Assert.Equal(existingItem.Task, item.Task);
+            Assert.NotNull(okResult);
+            Assert.Equal(200, okResult.StatusCode);
+            Assert.NotNull(item);
+            Assert.Equal(newItem.Id, item.Id);
+            Assert.Equal(newItem.Task, item.Task);
         }
 
         [Fact]
