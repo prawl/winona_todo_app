@@ -46,7 +46,7 @@ public class TodoItemsController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTodoItem(long id, TodoItemDTO todoDTO)
     {
-        if (id != todoDTO.Id)
+        if (id.ToString().ToLower() != todoDTO.ToString().ToLower())
         {
             return BadRequest();
         }
@@ -57,7 +57,9 @@ public class TodoItemsController : ControllerBase
             return NotFound();
         }
 
-        todoItem.Name = todoDTO.Name;
+        todoItem.Task = todoDTO.Task;
+        todoItem.Deadline = todoDTO.Deadline;
+        todoItem.Details = todoDTO.Details;
         todoItem.IsComplete = todoDTO.IsComplete;
 
         try
@@ -81,8 +83,11 @@ public class TodoItemsController : ControllerBase
     {
         var todoItem = new TodoItem
         {
+            Id = Guid.NewGuid(),
             IsComplete = todoDTO.IsComplete,
-            Name = todoDTO.Name
+            Task = todoDTO.Task,
+            Deadline = todoDTO.Deadline,
+            Details = todoDTO.Details
         };
 
         _context.TodoItems.Add(todoItem);
@@ -113,14 +118,16 @@ public class TodoItemsController : ControllerBase
 
     private bool TodoItemExists(long id)
     {
-        return _context.TodoItems.Any(e => e.Id == id);
+        return _context.TodoItems.Any(e => e.Id.ToString().ToLower() == id.ToString().ToLower());
     }
 
     private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
        new TodoItemDTO
        {
            Id = todoItem.Id,
-           Name = todoItem.Name,
+           Task = todoItem.Task,
+           Deadline = todoItem.Deadline,
+           Details = todoItem.Details,
            IsComplete = todoItem.IsComplete
        };
 }

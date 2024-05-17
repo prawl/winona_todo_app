@@ -2,7 +2,10 @@ namespace TodoApi.Models;
 
 public class TodoItemDTO
 {
-    public long Id { get; set; }
-    public string? Name { get; set; }
-    public bool IsComplete { get; set; }
+    public Guid? Id { get; set; }
+    public string? Task { get; set; }
+    public string? Deadline { get; set; }
+    public string? Details { get; set; }
+    public bool? IsComplete { get; set; }
+    public string? Secret { get; set; }
 }

@@ -1,0 +1,26 @@
+<div class="snackbar-msg__container flex items-center justify-between text-white rounded-md min-h-full w-full"
+     [ngClass]="snackBarClass">
+
+  <div class="flex items-center">
+    <img class="mr-16 w-20 h-20"
+         src="{{ iconUrl }}"
+         alt="Icon"
+         width="20px"
+         height="20px"/>
+
+    <span *ngIf="data.message"
+          class="mr-20">
+        {{data.message}}
+    </span>
+  </div>
+
+  <button class="btn btn-2xs btn-tertiary-reversed btn-icon-only"
+          type="button"
+          (click)="close()">
+    <img class="close-icon min-w-[16px]"
+         src="app/shared/assets/icons/no-base.svg"
+         alt="Close"
+         width="16px"
+         height="16px"/>
+  </button>
+</div>

@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
@@ -21,23 +20,27 @@ import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material/snack-bar';
 import { MatNativeDateModule } from "@angular/material/core";
+import { CommonModule, DatePipe } from "@angular/common";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MessageComponent } from "./components/message/message.component";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
-  declarations: [ ],
+  declarations: [ MessageComponent],
   imports: [
     CommonModule,
     FormsModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatSnackBarModule,
@@ -47,24 +50,23 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatTabsModule,
     ReactiveFormsModule,
     RouterModule,
-    ToggleComponent,
+    MatIconModule,
     MatDialogModule,
-    MatProgressBarModule,
-    MatMenuModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatProgressBarModule
   ],
   exports: [
     FormsModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
-    MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatNativeDateModule,
     MatPaginatorModule,
-    MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatSnackBarModule,
@@ -74,14 +76,17 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatTabsModule,
     ReactiveFormsModule,
     RouterModule,
-    ToggleComponent,
     MatDialogModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MessageComponent,
     MatProgressBarModule,
-    MatMenuModule
+    DatePipe
   ],
   providers: [
     MatSnackBarModule,
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
+    DatePipe
   ],
 })
 export class SharedModule {
