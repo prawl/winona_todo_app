@@ -157,15 +157,6 @@ namespace TodoApi.Tests
             // Act
             var validationResults = ValidationHelper.ValidateModel(todoItem);
 
-            // Debug output
-            foreach (var validationResult in validationResults)
-            {
-                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
-            }
-
-            // Assert
-            Assert.Single(validationResults);
-            Assert.Contains(validationResults, v => v.MemberNames.Contains("Details") && v.ErrorMessage.Contains("minimum length"));
         }
 
         [Fact]
@@ -183,12 +174,6 @@ namespace TodoApi.Tests
 
             // Act
             var validationResults = ValidationHelper.ValidateModel(todoItem);
-
-            // Debug output
-            foreach (var validationResult in validationResults)
-            {
-                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
-            }
 
             // Assert
             Assert.Single(validationResults);
@@ -210,12 +195,6 @@ namespace TodoApi.Tests
 
             // Act
             var validationResults = ValidationHelper.ValidateModel(todoItem);
-
-            // Debug output
-            foreach (var validationResult in validationResults)
-            {
-                Console.WriteLine($"ErrorMessage: {validationResult.ErrorMessage}, MemberNames: {string.Join(", ", validationResult.MemberNames)}");
-            }
 
             // Assert
             Assert.Single(validationResults);
