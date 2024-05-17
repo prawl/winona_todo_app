@@ -8,8 +8,9 @@ import { TodoItem } from '../models/todoItem';
 })
 export class TasksService {
   public isLoadingTaskItems$ = new BehaviorSubject(false);
-  public isSavingTaskItems$ = new BehaviorSubject(false);
+  public isUpdatingTaskItems$ = new BehaviorSubject(false);
   public isDeletingTaskItems$ = new BehaviorSubject(false);
+  public isSavingTaskItems$ = new BehaviorSubject(false);
 
   constructor(protected http: HttpClient) {}
 
@@ -27,6 +28,14 @@ export class TasksService {
     return this.http
       .post<TodoItem>(`http://localhost:5220/api/TodoItems`, item)
       .pipe(finalize(() => this.isSavingTaskItems$.next(false)));
+  }
+
+  public updateTodoItem(item: TodoItem): Observable<TodoItem> {
+    this.isUpdatingTaskItems$.next(true);
+
+    return this.http
+      .put<TodoItem>(`http://localhost:5220/api/TodoItems`, item)
+      .pipe(finalize(() => this.isUpdatingTaskItems$.next(false)));
   }
 
   public deleteToDo(guid: string): Observable<void> {

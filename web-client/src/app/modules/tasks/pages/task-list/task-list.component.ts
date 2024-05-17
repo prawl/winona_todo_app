@@ -51,6 +51,7 @@ export class TaskListComponent implements OnInit {
     const ref = this.dialog.open(AddTodoComponent);
 
     ref.afterClosed().subscribe((item: TodoItem) => {
+      item.subTasks = [];
       this.tasksService.saveTodoItem(item).subscribe({
         next: (resp) => {
           const items = this.dataSource.getData();
@@ -68,8 +69,11 @@ export class TaskListComponent implements OnInit {
     const ref = this.dialog.open(AddTodoComponent);
 
     ref.afterClosed().subscribe((item: TodoItem) => {
+      if (!task.subTasks) {
+        task.subTasks = [];
+      }
       task.subTasks.push(item)
-      this.tasksService.saveTodoItem(task).subscribe({
+      this.tasksService.updateTodoItem(task).subscribe({
         next: (resp) => {
           const items = this.dataSource.getData();
           const filteredTasks = items.filter(x => x.id !== task.id);
