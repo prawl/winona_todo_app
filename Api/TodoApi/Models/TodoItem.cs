@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TodoApi.Models
@@ -38,9 +40,12 @@ namespace TodoApi.Models
         [MinLength(10)]
         [MaxLength(500)]
         public required string Details { get; set; }
+
         public bool IsComplete { get; set; }
-        private List<TodoItem>? subTasks;
-        public List<TodoItem>? SubTasks
+
+        private List<TodoItem> subTasks = new List<TodoItem>();
+
+        public List<TodoItem> SubTasks
         {
             get => subTasks;
             set
@@ -54,8 +59,12 @@ namespace TodoApi.Models
                             throw new InvalidOperationException("Subtasks cannot have their own subtasks.");
                         }
                     }
+                    subTasks = value;
                 }
-                subTasks = value;
+                else
+                {
+                    subTasks = new List<TodoItem>();
+                }
             }
         }
     }

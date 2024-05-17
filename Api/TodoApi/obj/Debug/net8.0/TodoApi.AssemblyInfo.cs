@@ -23,6 +23,7 @@ using System.Reflection;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3925d7676e7d03dcc50195a8567ed46482bec6b8")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae6d7551b88d7b8019e8e1b1c7e0b7e7c194caad")]
@@ -54,6 +55,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d156697a069fc7bd339784b336982b53afc526d")]
 >>>>>>> 09d2788 (PUT accounts for subtasks)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09d27880e1bc9dc14a18ed2cefa20f30179c4e90")]
+>>>>>>> 01e68ac (PUT has empty list when no subtasks exist)
 [assembly: System.Reflection.AssemblyProductAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TodoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

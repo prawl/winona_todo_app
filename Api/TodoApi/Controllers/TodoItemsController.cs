@@ -58,28 +58,7 @@ public class TodoItemsController : ControllerBase
         todoItem.Details = item.Details;
         todoItem.IsComplete = item.IsComplete;
 
-        // Clear existing subtasks and add the new ones
-        todoItem.SubTasks.Clear();
-
-        if (item.SubTasks != null)
-        {
-            foreach (var subTask in item.SubTasks)
-            {
-                if (subTask.SubTasks != null && subTask.SubTasks.Any())
-                {
-                    return BadRequest("Subtasks cannot have their own subtasks.");
-                }
-
-                if (subTask.Id == Guid.Empty)
-                {
-                    subTask.Id = Guid.NewGuid();
-                }
-
-                // Ensure the new subtask is tracked by EF
-                _context.Entry(subTask).State = EntityState.Added;
-                todoItem.SubTasks.Add(subTask);
-            }
-        }
+        todoItem.SubTasks = item.SubTasks ?? new List<TodoItem>();
 
         try
         {
@@ -92,7 +71,6 @@ public class TodoItemsController : ControllerBase
 
         return NoContent();
     }
-
 
     // </snippet_Update>
 
