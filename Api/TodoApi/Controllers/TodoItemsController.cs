@@ -60,17 +60,12 @@ namespace TodoApi.Controllers
         }
 
         // PUT: api/TodoItems/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(Guid id, TodoItem item)
+        [HttpPut]
+        public async Task<IActionResult> PutTodoItem(TodoItem item)
         {
-            if (id != item.Id)
-            {
-                return BadRequest();
-            }
-
             var existingItem = await _context.TodoItems
                 .Include(t => t.SubTasks)
-                .FirstOrDefaultAsync(t => t.Id == id);
+                .FirstOrDefaultAsync(t => t.Id == item.Id);
 
             if (existingItem == null)
             {
