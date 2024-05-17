@@ -107,6 +107,50 @@ namespace TodoApi.Controllers
             return Ok(item);
         }
 
+        // PUT: api/TodoItems/MarkComplete/{id}
+        [HttpPut("MarkComplete/{id}")]
+        public async Task<IActionResult> MarkComplete(Guid id)
+        {
+            var parentItem = await _context.TodoItems
+                .Include(t => t.SubTasks)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (parentItem != null)
+            {
+                MarkItemAndSubTasksComplete(parentItem);
+            }
+            else
+            {
+                var subTaskItem = await _context.TodoItems
+                    .Include(t => t.SubTasks)
+                    .FirstOrDefaultAsync(t => t.SubTasks.Any(st => st.Id == id));
+
+                if (subTaskItem != null)
+                {
+                    var subTask = subTaskItem.SubTasks.First(st => st.Id == id);
+                    subTask.IsComplete = true;
+                    _context.Entry(subTask).State = EntityState.Modified;
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        private void MarkItemAndSubTasksComplete(TodoItem item)
+        {
+            item.IsComplete = true;
+            foreach (var subTask in item.SubTasks)
+            {
+                MarkItemAndSubTasksComplete(subTask);
+            }
+            _context.Entry(item).State = EntityState.Modified;
+        }
+
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(Guid id)
