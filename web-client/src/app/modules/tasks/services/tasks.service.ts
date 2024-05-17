@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, finalize } from 'rxjs';
 import { TodoItem } from '../models/todoItem';
+import { env, environments } from '../../../../config/env.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TasksService {
+  public apiUrl: string = environments[env.env].apiUrl;
+  
   public isLoadingTaskItems$ = new BehaviorSubject(false);
   public isUpdatingTaskItems$ = new BehaviorSubject(false);
   public isDeletingTaskItems$ = new BehaviorSubject(false);
@@ -18,7 +21,7 @@ export class TasksService {
     this.isLoadingTaskItems$.next(true);
 
     return this.http
-      .get<TodoItem[]>(`http://localhost:5220/api/TodoItems`)
+      .get<TodoItem[]>(`${this.apiUrl}`)
       .pipe(finalize(() => this.isLoadingTaskItems$.next(false)));
   }
 
@@ -26,7 +29,7 @@ export class TasksService {
     this.isSavingTaskItems$.next(true);
 
     return this.http
-      .post<TodoItem>(`http://localhost:5220/api/TodoItems`, item)
+      .post<TodoItem>(`${this.apiUrl}`, item)
       .pipe(finalize(() => this.isSavingTaskItems$.next(false)));
   }
 
@@ -34,7 +37,7 @@ export class TasksService {
     this.isUpdatingTaskItems$.next(true);
 
     return this.http
-      .put<TodoItem>(`http://localhost:5220/api/TodoItems`, item)
+      .put<TodoItem>(`${this.apiUrl}`, item)
       .pipe(finalize(() => this.isUpdatingTaskItems$.next(false)));
   }
 
@@ -42,7 +45,7 @@ export class TasksService {
     this.isDeletingTaskItems$.next(true);
 
     return this.http
-      .delete<TodoItem[]>(`http://localhost:5220/api/TodoItems/${guid}`, {})
+      .delete<TodoItem[]>(`${this.apiUrl}/${guid}`, {})
       .pipe(finalize(() => this.isDeletingTaskItems$.next(false)));
   }
 
@@ -50,7 +53,7 @@ export class TasksService {
     this.isUpdatingTaskItems$.next(true);
 
     return this.http
-      .put<TodoItem[]>(`http://localhost:5220/api/TodoItems/MarkComplete/${id}`, id)
+      .put<TodoItem[]>(`${this.apiUrl}/MarkComplete/${id}`, id)
       .pipe(finalize(() => this.isUpdatingTaskItems$.next(false)));
   }
 }
