@@ -43,27 +43,27 @@ namespace TodoApi.Models
 
         public bool IsComplete { get; set; }
 
-        private List<TodoItem> subTasks = new List<TodoItem>();
+        private List<SubTask> subTasks = new List<SubTask>();
 
-        public List<TodoItem> SubTasks
+        public List<SubTask> SubTasks
         {
             get => subTasks;
             set
             {
                 if (value != null)
                 {
-                    foreach (var subTask in value)
-                    {
-                        if (subTask.SubTasks != null && subTask.SubTasks.Any())
-                        {
-                            throw new InvalidOperationException("Subtasks cannot have their own subtasks.");
-                        }
-                    }
+
+
+
+
+
+
+
                     subTasks = value;
                 }
                 else
                 {
-                    subTasks = new List<TodoItem>();
+                    subTasks = new List<SubTask>();
                 }
             }
         }

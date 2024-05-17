@@ -23,7 +23,7 @@ namespace TodoApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
         {
-            return await _context.TodoItems.ToListAsync();
+            return await _context.TodoItems.Include(t => t.SubTasks).ToListAsync();
         }
 
         // GET: api/TodoItems/5
@@ -39,7 +39,7 @@ namespace TodoApi.Controllers
                 return NotFound();
             }
 
-            return todoItem;
+            return Ok(todoItem);
         }
 
         // POST: api/TodoItems
@@ -61,98 +61,6 @@ namespace TodoApi.Controllers
             return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
         }
 
-        // PUT: api/TodoItems/5
-        [HttpPut]
-        public async Task<IActionResult> PutTodoItem(TodoItem item)
-        {
-            var existingItem = await _context.TodoItems
-                .Include(t => t.SubTasks)
-                .FirstOrDefaultAsync(t => t.Id == item.Id);
-
-            if (existingItem == null)
-            {
-                return NotFound();
-            }
-
-            // Detach existing item
-            _context.Entry(existingItem).State = EntityState.Detached;
-
-            // Update existing item's properties
-            existingItem.Task = item.Task;
-            existingItem.Deadline = item.Deadline;
-            existingItem.Details = item.Details;
-            existingItem.IsComplete = item.IsComplete;
-
-            // Handle subtasks
-            foreach (var subTask in item.SubTasks)
-            {
-                if (subTask.Id == Guid.Empty || subTask.Id == default)
-                {
-                    subTask.Id = Guid.NewGuid();
-                }
-                else
-                {
-                    var existingSubTask = await _context.TodoItems.FindAsync(subTask.Id);
-                    if (existingSubTask != null)
-                    {
-                        _context.Entry(existingSubTask).State = EntityState.Detached;
-                    }
-                }
-            }
-
-            existingItem.SubTasks = item.SubTasks;
-
-            // Attach the updated item to the context and update
-            _context.Entry(existingItem).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
-            return Ok(item);
-        }
-
-        // PUT: api/TodoItems/MarkComplete/{id}
-        [HttpPut("MarkComplete/{id}")]
-        public async Task<IActionResult> MarkComplete(Guid id)
-        {
-            var parentItem = await _context.TodoItems
-                .Include(t => t.SubTasks)
-                .FirstOrDefaultAsync(t => t.Id == id);
-
-            if (parentItem != null)
-            {
-                MarkItemAndSubTasksComplete(parentItem);
-            }
-            else
-            {
-                var subTaskItem = await _context.TodoItems
-                    .Include(t => t.SubTasks)
-                    .FirstOrDefaultAsync(t => t.SubTasks.Any(st => st.Id == id));
-
-                if (subTaskItem != null)
-                {
-                    var subTask = subTaskItem.SubTasks.First(st => st.Id == id);
-                    subTask.IsComplete = true;
-                    _context.Entry(subTask).State = EntityState.Modified;
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-
-            await _context.SaveChangesAsync();
-            return Ok();
-        }
-
-        private void MarkItemAndSubTasksComplete(TodoItem item)
-        {
-            item.IsComplete = true;
-            foreach (var subTask in item.SubTasks)
-            {
-                MarkItemAndSubTasksComplete(subTask);
-            }
-            _context.Entry(item).State = EntityState.Modified;
-        }
-
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodoItem(Guid id)
@@ -168,5 +76,77 @@ namespace TodoApi.Controllers
 
             return NoContent();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> PutTodoItem(TodoItem todoItem)
+        {
+
+            var existingTodoItem = await _context.TodoItems
+                .FirstOrDefaultAsync(t => t.Id == todoItem.Id);
+
+            if (existingTodoItem == null)
+            {
+                return NotFound();
+            }
+
+            // Update existing TodoItem properties
+            existingTodoItem.Task = todoItem.Task;
+            existingTodoItem.Deadline = todoItem.Deadline;
+            existingTodoItem.Details = todoItem.Details;
+            existingTodoItem.IsComplete = todoItem.IsComplete;
+
+            // Handle subtasks
+            foreach (var subTask in todoItem.SubTasks)
+            {
+                if (subTask.Id == Guid.Empty)
+                {
+                    // New subtask, add to Subtasks DbSet
+                    subTask.Id = Guid.NewGuid(); // Assign a new ID
+                    subTask.ParentId = existingTodoItem.Id; // Set the ParentId
+                    _context.Subtasks.Add(subTask);
+                    existingTodoItem.SubTasks.Add(subTask);
+                }
+                else
+                {
+                    // Existing subtask, update it
+                    var existingSubTask = await _context.Subtasks
+                        .FirstOrDefaultAsync(s => s.Id == subTask.Id);
+
+                    if (existingSubTask != null)
+                    {
+                        existingSubTask.Task = subTask.Task;
+                        existingSubTask.Deadline = subTask.Deadline;
+                        existingSubTask.Details = subTask.Details;
+                        existingSubTask.IsComplete = subTask.IsComplete;
+                        existingSubTask.ParentId = existingTodoItem.Id; // Ensure the ParentId is correct
+                        _context.Subtasks.Update(existingSubTask);
+                    }
+                }
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TodoItemExists(todoItem.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(existingTodoItem);
+        }
+
+        private bool TodoItemExists(Guid id)
+        {
+            return _context.TodoItems.Any(e => e.Id == id);
+        }
+
     }
 }

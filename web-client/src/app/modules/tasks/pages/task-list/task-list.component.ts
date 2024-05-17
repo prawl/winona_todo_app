@@ -58,7 +58,7 @@ export class TaskListComponent implements OnInit {
           this.dataSource.setData(items);
         },
         error: (err: HttpErrorResponse) => {
-          this.snackBarService.error('Error deleting to do.');
+          this.snackBarService.error('Error creating Task.');
         },
       });
     });
@@ -78,9 +78,10 @@ export class TaskListComponent implements OnInit {
           const filteredTasks = items.filter(x => x.id !== task.id);
           filteredTasks.push(resp);
           this.dataSource.setData(filteredTasks);
+          this.snackBarService.success('Successfully added sub task.');
         },
         error: (err: HttpErrorResponse) => {
-          this.snackBarService.error('Error deleting to do.');
+          this.snackBarService.error('Error updating task.');
         },
       });
     });
