@@ -30,7 +30,9 @@ namespace TodoApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TodoItem>> GetTodoItem(Guid id)
         {
-            var todoItem = await _context.TodoItems.FindAsync(id);
+            var todoItem = await _context.TodoItems
+                .Include(t => t.SubTasks)
+                .FirstOrDefaultAsync(t => t.Id == id);
 
             if (todoItem == null)
             {
