@@ -30,7 +30,7 @@ namespace TodoApi.Models
         public Guid Id { get; set; }
 
         [Required]
-        [MinLength(5)]
+        [MinLength(2)]
         [MaxLength(100)]
         public required string Task { get; set; }
 

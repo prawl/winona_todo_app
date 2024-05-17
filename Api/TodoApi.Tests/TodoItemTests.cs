@@ -127,7 +127,7 @@ namespace TodoApi.Tests
             var todoItem = new TodoItem
             {
                 Id = Guid.NewGuid(),
-                Task = "Shor", // Invalid length
+                Task = "S", // Invalid length
                 Details = "Valid details with sufficient length",
                 Deadline = "2024-08-01",
                 IsComplete = false
