@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
+using System.Diagnostics;
 
 namespace TodoApi.Controllers;
 
@@ -69,7 +70,7 @@ public class TodoItemsController : ControllerBase
             return NotFound();
         }
 
-        return NoContent();
+        return Ok(todoItem);
     }
 
     // </snippet_Update>

@@ -51,7 +51,6 @@ export class TaskListComponent implements OnInit {
     const ref = this.dialog.open(AddTodoComponent);
 
     ref.afterClosed().subscribe((item: TodoItem) => {
-      item.subTasks = [];
       this.tasksService.saveTodoItem(item).subscribe({
         next: (resp) => {
           const items = this.dataSource.getData();

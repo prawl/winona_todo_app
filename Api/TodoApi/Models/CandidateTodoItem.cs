@@ -11,7 +11,7 @@ namespace TodoApi.Models
         public required string Deadline { get; set; }
 
         [Required]
-        [MinLength(10)]
+        [MinLength(2)]
         [MaxLength(500)]
         public required string Details { get; set; }
         public bool IsComplete { get; set; }
