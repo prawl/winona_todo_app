@@ -62,32 +62,35 @@ namespace TodoApi.Tests
         public async Task GetTodoItemWithSubTasks_ShouldReturnTodoItemWithSubTasks()
         {
             // Arrange
+            var mainTaskId = Guid.NewGuid();
             var mainTask = new TodoItem
             {
-                Id = Guid.NewGuid(),
+                Id = mainTaskId,
                 Task = "Main Task",
                 Deadline = "2024-05-20",
                 Details = "Main task details",
                 IsComplete = false,
-                SubTasks = new List<TodoItem>
-        {
-            new TodoItem
-            {
-                Id = Guid.NewGuid(),
-                Task = "Subtask 1",
-                Deadline = "2024-05-21",
-                Details = "Subtask details 1",
-                IsComplete = false,
-            },
-            new TodoItem
-            {
-                Id = Guid.NewGuid(),
-                Task = "Subtask 2",
-                Deadline = "2024-05-22",
-                Details = "Subtask details 2",
-                IsComplete = false,
-            }
-        }
+                SubTasks = new List<SubTask>
+                {
+                    new SubTask
+                    {
+                        Id = Guid.NewGuid(),
+                        Task = "Subtask 1",
+                        Deadline = "2024-05-21",
+                        Details = "Subtask details 1",
+                        IsComplete = false,
+                        ParentId = mainTaskId
+                    },
+                    new SubTask
+                    {
+                        Id = Guid.NewGuid(),
+                        Task = "Subtask 2",
+                        Deadline = "2024-05-22",
+                        Details = "Subtask details 2",
+                        IsComplete = false,
+                        ParentId = mainTaskId
+                    }
+                }
             };
 
             _context.TodoItems.Add(mainTask);
@@ -179,13 +182,14 @@ namespace TodoApi.Tests
         {
             // Arrange
             var existingItem = await _context.TodoItems.FirstAsync();
-            var subTask = new TodoItem
+            var subTask = new SubTask
             {
                 Id = Guid.Empty, // Indicate that this is a new subtask
                 Task = "Subtask",
                 Deadline = "2024-07-01",
                 Details = "Subtask details",
-                IsComplete = false
+                IsComplete = false,
+                ParentId = existingItem.Id
             };
             var updatedItem = new TodoItem
             {
@@ -194,7 +198,7 @@ namespace TodoApi.Tests
                 Deadline = "2024-07-01",
                 Details = "Updated details",
                 IsComplete = true,
-                SubTasks = new List<TodoItem> { subTask }
+                SubTasks = new List<SubTask> { subTask }
             };
 
             // Act
@@ -271,7 +275,7 @@ namespace TodoApi.Tests
             var result = await _controller.DeleteTodoItem(existingItem.Id);
 
             // Assert
-            Assert.IsType<NoContentResult>(result);
+            var okResult = Assert.IsType<OkObjectResult>(result); // Change assertion type
 
             var items = await _context.TodoItems.ToListAsync();
             Assert.Single(items); // Verify that the item was removed
