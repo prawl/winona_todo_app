@@ -135,7 +135,7 @@ namespace TodoApi.Tests
             };
 
             // Act
-            var result = await _controller.PutTodoItem(existingItem.Id, updatedItem);
+            var result = await _controller.PutTodoItem(updatedItem);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -166,7 +166,7 @@ namespace TodoApi.Tests
             };
 
             // Act
-            var result = await _controller.PutTodoItem(existingItem.Id, updatedItem);
+            var result = await _controller.PutTodoItem(updatedItem);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -192,7 +192,7 @@ namespace TodoApi.Tests
             };
 
             // Act
-            var result = await _controller.PutTodoItem(nonExistentItem.Id, nonExistentItem);
+            var result = await _controller.PutTodoItem(nonExistentItem);
 
             // Assert
             Assert.IsType<NotFoundResult>(result);
