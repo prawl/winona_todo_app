@@ -38,3 +38,8 @@ tr.task-row:not(.subtask-expanded):active {
 .task-status {
   @apply text-center px-3 py-1 uppercase font-bold text-xs rounded-full shadow-sm;
 }
+
+th,
+td {
+  @apply text-center #{!important};
+}
