@@ -15,15 +15,15 @@ export interface Environments {
 
 export const environments: Environments = {
   local: {
-    apiUrl: 'https://localhost:7120/api/TodoItems',
+    apiUrl: 'http://localhost:5220/api/TodoItems',
   },
   dev: {
-    apiUrl: 'https://localhost:7120/api/TodoItems',
+    apiUrl: 'http://localhost:5220/api/TodoItems',
   },
   qa: {
-    apiUrl: 'https://localhost:7120/api/TodoItems',
+    apiUrl: 'http://localhost:5220/api/TodoItems',
   },
   prod: {
-    apiUrl: 'https://localhost:7120/api/TodoItems',
+    apiUrl: 'http://localhost:5220/api/TodoItems',
   }
 };
