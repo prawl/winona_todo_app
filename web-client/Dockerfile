@@ -11,8 +11,6 @@ RUN npm install -g webpack @angular/cli@latest
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
-RUN rm -rf node_modules package-lock.json
-
 # Install app dependencies
 RUN npm install
 

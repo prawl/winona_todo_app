@@ -8,14 +8,16 @@ services:
       context: Api/.
       dockerfile: Dockerfile
     ports:
-      - 8000:8000 
+      - 5220:8000  # Map port 5220 on host to port 8000 in the container
+    environment:
+      - ASPNETCORE_URLS=http://+:8000  # Ensure the API listens on port 8000 internally
 
   web-client:
     build:
       context: ./web-client
       dockerfile: Dockerfile
     container_name: web-client_container
-    command: ng serve --host 0.0.0.0 --port 4200 --open
+    command: sh -c "npm install && ng serve --host 0.0.0.0 --port 4200"
     ports:
       - '4200:4200'
     volumes:

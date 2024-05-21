@@ -6,7 +6,16 @@
 
 Ever missed an anniversary because you forgot to buy flowers? Yeah, us too. Welcome to TaskTamer, where you can finally keep track of all the important (and not-so-important) things in life. Add tasks, create subtasks, and clean up your list with ruthless efficiency. Mark them complete and feel that sweet, sweet relief. Tame your to-dos and never miss a beat again.
 
-# Getting Started Web API
+# Running the app locally
+1.
+```
+$ docker-compose build
+$ docker-compose up
+```
+
+2. Access the app at http://localhost:4200/tasks
+
+
 
 ## Prerequisites
 [VS Code](https://code.visualstudio.com/download)  (optional)
