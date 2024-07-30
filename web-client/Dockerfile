@@ -1,4 +1,4 @@
-FROM node:18.14
+FROM node:18.19.0
 
 ENV APP_HOME=/app
 
