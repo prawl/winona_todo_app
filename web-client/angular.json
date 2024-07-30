@@ -64,6 +64,10 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "poll": 2000,
+            "watch": true
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

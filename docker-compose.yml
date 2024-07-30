@@ -24,3 +24,4 @@ services:
       - ./web-client:/app
     environment:
       NODE_ENV: development
+      CHOKIDAR_USEPOLLING: true # Enable polling
