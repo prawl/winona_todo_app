@@ -33,7 +33,7 @@
       <div class="flex flex-col mx-10">
         <mat-label>Details</mat-label>
         <mat-form-field appearance="outline">
-          <textarea matInput formControlName="details" class="min-h-24" placeholder="Please enter any details."
+          <textarea matInput formControlName="details" class="max-h-32" placeholder="Please enter any details."
             required></textarea>
           @if (details.invalid) {
           <mat-error>Task name is required.</mat-error>
